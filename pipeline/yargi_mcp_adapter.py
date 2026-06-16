@@ -1,44 +1,55 @@
 """
-Adapter: yargi-mcp → raw_capture.v1.json
+Adapter: yargi-mcp to raw_capture.v1.json
 
 Converts Emsal (UYAP) API output to Filex raw_capture.v1.json format.
-Bridges the gap between yargi-mcp and validate_raw_capture.ts.
+CRITICAL: Validator expects SINGLE OBJECT per file, not arrays.
 
 Pipeline:
-  yargi-mcp (search_emsal_detailed_decisions)
+  yargi-mcp API (search_emsal_detailed_decisions)
     |
-  [This adapter]
+  [This adapter - fetches metadata + full text]
     |
-  raw_capture.v1.json (Filex intake format)
+  raw_capture.v1.json files (one file = one decision object)
     |
-  validate_raw_capture.ts (schema lock)
+  validate_raw_capture.ts (tsx runner - per file)
     |
-  PASS/HOLD/REJECT
+  PASS/HOLD/REJECT results
 """
 
 import json
 import uuid
-from datetime import datetime
+import subprocess
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, Any, Optional
 import sys
+import re
 
 # Add parent tests dir to path for common utilities
 sys.path.insert(0, str(Path(__file__).parent.parent / "tests"))
 from common import log, parse_sse_or_json, initialize_session, call_tool
 
+# Filex validator paths (use Windows path on Windows, Bash path in subprocess)
+VALIDATOR_PATH_BASH = Path("/c/FilexAI/filex-decision-intelligence/pipeline/intake/validate_raw_capture.ts")
+VALIDATOR_DIR = Path("/c/FilexAI/filex-decision-intelligence")
+
+RESULTS_DIR = Path(__file__).parent.parent / "results"
+VALIDATED_DIR = RESULTS_DIR / "validated"
+REJECTED_DIR = RESULTS_DIR / "rejected"
+
 
 class EmsalToRawCaptureAdapter:
-    """Converts Emsal decision metadata → raw_capture.v1.json"""
+    """Converts Emsal decision metadata to raw_capture format."""
 
     SCHEMA_VERSION = "0.1.0"
     CAPTURE_METHOD = "manual_extension_assisted_capture"
     SOURCE_DOMAIN = "emsal.uyap.gov.tr"
     PROVENANCE_GRADE = "B"  # Portal-only (requires UYAP login, no stable URL)
-    CANDIDATE_STATUS = "HOLD_PENDING_REVIEW"  # Always hold for review by Cüneyt Bey
+    CANDIDATE_STATUS = "HOLD_PENDING_REVIEW"  # Always hold for review
 
     def __init__(self, captured_by: str = "yargi_mcp_bot"):
         self.captured_by = captured_by
+        self.decision_counter = 0
 
     def adapt_emsal_metadata(
         self,
@@ -47,68 +58,75 @@ class EmsalToRawCaptureAdapter:
     ) -> Dict[str, Any]:
         """
         Convert single Emsal decision to raw_capture format.
+        Returns SINGLE OBJECT (not array).
 
         Args:
-            decision: From search_emsal_detailed_decisions API (metadata only)
-            full_text: Optional full markdown text from get_emsal_document_markdown
+            decision: From search_emsal_detailed_decisions API
+            full_text: From get_emsal_document_markdown
 
         Returns:
-            raw_capture.v1.json compatible dict
+            raw_capture.v1.json compatible dict (single object)
         """
-        capture_id = f"emsal-{decision.get('id', 'unknown')}-{uuid.uuid4().hex[:8]}"
+        self.decision_counter += 1
+        capture_id = f"yargi_mcp_emsal_{datetime.now().strftime('%Y%m%d')}_{self.decision_counter:03d}"
 
         # Parse metadata
         daire = decision.get("daire", "").strip()
         esas_no = decision.get("esasNo", "").strip()
         karar_no = decision.get("kararNo", "").strip()
         karar_tarihi = decision.get("kararTarihi", "").strip()  # DD.MM.YYYY
-        document_url = decision.get("document_url", "")
 
         # Convert date from DD.MM.YYYY to YYYY-MM-DD
         decision_date = self._parse_date(karar_tarihi)
 
-        # Extract chamber from daire (e.g., "4. Hukuk Dairesi" from full name)
+        # Extract court info
         chamber = self._extract_chamber(daire)
-
-        # Court name (use first part of daire as court)
         court = self._extract_court_name(daire)
 
         # Build excerpt (use full text if available, else construct from metadata)
         selected_text_excerpt = full_text if full_text else self._build_excerpt(decision)
 
-        # Run PII check
+        # PII check
         pii_check = self._check_pii(selected_text_excerpt)
 
-        # Build raw_capture document
+        # Get current time in ISO format with timezone
+        now_utc = datetime.now(timezone.utc)
+        captured_at = now_utc.isoformat()
+
+        # Build raw_capture document (SINGLE OBJECT, not array)
         raw_capture = {
             "capture_id": capture_id,
             "schema_version": self.SCHEMA_VERSION,
             "source_domain": self.SOURCE_DOMAIN,
             "source_name": "Emsal (UYAP)",
             "capture_method": self.CAPTURE_METHOD,
-            "captured_at": datetime.utcnow().isoformat() + "Z",
+            "captured_at": captured_at,
             "captured_by": self.captured_by,
             "court": court,
-            "chamber": chamber,
             "esas_no": esas_no,
             "karar_no": karar_no,
             "decision_date": decision_date,
             "provenance_grade": self.PROVENANCE_GRADE,
             "provenance_status": "confirmed_no_stable_url",
-            "source_url_note": "Portal-only decision. Requires UYAP login. Document ID: " + decision.get("id", "unknown"),
+            "source_url_note": f"Portal-only (UYAP login required). Document ID: {decision.get('id')}",
             "candidate_status": self.CANDIDATE_STATUS,
             "pii_initial_check": pii_check,
-            "selected_text_excerpt": selected_text_excerpt[:5000],  # Truncate to safety limit
-            "official_locator": {
-                "source": "emsal_uyap",
-                "document_id": decision.get("id"),
-                "url_template": "https://emsal.uyap.gov.tr/getDokuman?id={id}"
-            }
+            "selected_text_excerpt": selected_text_excerpt[:5000]  # Truncate to safety limit
         }
 
         # Add optional fields
-        if document_url:
-            raw_capture["source_url"] = document_url
+        if chamber:
+            raw_capture["chamber"] = chamber
+
+        if decision.get("document_url"):
+            raw_capture["source_url"] = decision["document_url"]
+
+        # Official locator for Emsal
+        raw_capture["official_locator"] = {
+            "source": "emsal_uyap",
+            "document_id": decision.get("id"),
+            "url_template": "https://emsal.uyap.gov.tr/getDokuman?id={id}"
+        }
 
         return raw_capture
 
@@ -125,12 +143,9 @@ class EmsalToRawCaptureAdapter:
 
     def _extract_chamber(self, daire: str) -> Optional[str]:
         """Extract chamber from full daire name"""
-        # e.g., "Diyarbakır Bölge Adliye Mahkemesi 4. Hukuk Dairesi" → "4. Hukuk Dairesi"
-        import re
-        m = re.search(r'(\d+\.(?:\s+)?(?:Hukuk|Ceza|İdari|Iş)\s+Dairesi)', daire, re.I)
+        m = re.search(r'(\d+\.(?:\s+)?(?:Hukuk|Ceza|Idari|Is)\s+Dairesi)', daire, re.I)
         if m:
             return m.group(1).strip()
-        # Fallback: use last part if it contains "Daire"
         if "Daire" in daire:
             parts = daire.split()
             for i in range(len(parts) - 1, -1, -1):
@@ -140,49 +155,32 @@ class EmsalToRawCaptureAdapter:
 
     def _extract_court_name(self, daire: str) -> str:
         """Extract court name from daire"""
-        # e.g., "Diyarbakır Bölge Adliye Mahkemesi" from full daire
-        # Simple heuristic: take up to "Mahkemesi" or "Kurulu"
-        import re
-        m = re.search(r'^([^M]*(?:Mahkemesi|Kurulu))', daire)
+        m = re.search(r'^([^D]*(?:Mahkemesi|Kurulu))', daire)
         if m:
             return m.group(1).strip()
-        # Fallback: use whole daire
         return daire.split("Dairesi")[0].strip() if "Dairesi" in daire else daire
 
     def _build_excerpt(self, decision: Dict[str, Any]) -> str:
         """Build text excerpt from metadata when full text unavailable"""
-        parts = []
-
-        # Header
-        daire = decision.get("daire", "")
-        parts.append(f"Mahkeme: {daire}")
-
-        # Case info
-        parts.append(f"Esas No: {decision.get('esasNo', 'N/A')}")
-        parts.append(f"Karar No: {decision.get('kararNo', 'N/A')}")
-        parts.append(f"Tarih: {decision.get('kararTarihi', 'N/A')}")
-
-        # Status
-        durum = decision.get("durum", "")
-        if durum:
-            parts.append(f"Durum: {durum}")
-
-        # Note
-        parts.append(f"\n[Tam metin şu araç ile alınmıştır: yargi-mcp. Cüneyt Bey incelemesi bekleniyor.]")
-
+        parts = [
+            f"Mahkeme: {decision.get('daire', '')}",
+            f"Esas No: {decision.get('esasNo', 'N/A')}",
+            f"Karar No: {decision.get('kararNo', 'N/A')}",
+            f"Tarih: {decision.get('kararTarihi', 'N/A')}",
+            "",
+            "[Tam metin yargi-mcp tarafindan alinmistir. Cuneyt Bey incelemesi bekleniyor.]"
+        ]
         return "\n".join(parts)
 
     def _check_pii(self, text: str) -> Dict[str, Any]:
         """
         Basic PII check on text.
-        Rules: phone numbers, emails, personal addresses, ID numbers
+        Conservative: flag everything for manual review.
         """
-        import re
-
         signals = []
         pii_seen = False
 
-        # Phone number pattern (Turkish: +90, 0xx, etc.)
+        # Phone number pattern (Turkish)
         if re.search(r'\+90\d{10}|\b0\d{3}\s?\d{3}\s?\d{2}\s?\d{2}\b', text):
             signals.append("phone_number")
             pii_seen = True
@@ -192,33 +190,42 @@ class EmsalToRawCaptureAdapter:
             signals.append("email_address")
             pii_seen = True
 
-        # Turkish ID number pattern (11 digits)
+        # Turkish ID number (11 digits)
         if re.search(r'\b[0-9]{11}\b', text):
             signals.append("id_number_hint")
             pii_seen = True
 
-        # Personal address hints (Istanbul, İzmir, etc. with address markers)
+        # Address patterns
         if re.search(r'(Sokak|Caddesi|Mah\.?|Mahallesi|No\.?)\s+[0-9]+', text, re.I):
             signals.append("address_hint")
             pii_seen = True
 
+        # Conservative: always require manual review for API data
         return {
             "pii_seen": pii_seen,
             "signals": signals,
-            "manual_review_required": pii_seen,
-            "full_text_storage_policy": "do_not_store_until_cleaned" if pii_seen else "ok_excerpt_only"
+            "manual_review_required": True,  # ALWAYS true for API data
+            "full_text_storage_policy": "do_not_store_until_cleaned"  # Conservative storage policy
         }
 
 
-def fetch_emsal_and_adapt(keyword: str, session_id: Optional[str] = None) -> list:
+def fetch_emsal_and_validate(keyword: str, limit: int = 1, session_id: Optional[str] = None) -> dict:
     """
-    1. Search Emsal with yargi-mcp
-    2. Fetch each result's full text
-    3. Adapt to raw_capture.v1.json format
+    1. Search Emsal
+    2. Fetch full text for each result
+    3. Adapt to raw_capture format
+    4. Validate with tsx validator
+    5. Sort into validated/ or rejected/
 
-    Returns list of raw_capture documents
+    Args:
+        keyword: Search term
+        limit: Number of decisions to fetch (default 1 for testing)
+        session_id: MCP session ID
+
+    Returns:
+        Summary dict with pass/fail counts
     """
-    log(f"Emsal arama: '{keyword}'", "INFO")
+    log(f"Emsal arama: '{keyword}' (max {limit})", "INFO")
 
     # Step 1: Search metadata
     response = call_tool(
@@ -228,101 +235,139 @@ def fetch_emsal_and_adapt(keyword: str, session_id: Optional[str] = None) -> lis
     )
 
     try:
-        # response is dict: {result: {content: [{type, text}]}, ...}
         content = response.get("result", {}).get("content", [])
         if not content:
             log("No content in response", "WARN")
-            return []
+            return {"pass": 0, "hold": 0, "reject": 0}
 
         response_text = content[0].get("text", "")
         is_error = response.get("result", {}).get("isError", False)
 
         if is_error:
             log(f"API error: {response_text[:100]}", "FAIL")
-            return []
+            return {"pass": 0, "hold": 0, "reject": 0}
 
-        # Parse the JSON text
         search_data = json.loads(response_text)
-
         if isinstance(search_data, dict) and "decisions" in search_data:
             decisions = search_data["decisions"]
         else:
             decisions = search_data if isinstance(search_data, list) else []
-    except (json.JSONDecodeError, TypeError, KeyError) as e:
+    except Exception as e:
         log(f"Parse error: {str(e)}", "FAIL")
-        return []
+        return {"pass": 0, "hold": 0, "reject": 0}
 
     if not decisions:
-        log("Sonuç yok", "WARN")
-        return []
+        log("Sonuc yok", "WARN")
+        return {"pass": 0, "hold": 0, "reject": 0}
 
-    log(f"Bulundu: {len(decisions)} karar", "OK")
+    log(f"Bulundu: {len(decisions)} karar, processing first {limit}", "OK")
 
-    # Step 2: Fetch full text for each decision
+    # Step 2: Fetch full text and validate each
     adapter = EmsalToRawCaptureAdapter()
-    raw_captures = []
+    results = {"pass": 0, "hold": 0, "reject": 0}
 
-    for i, decision in enumerate(decisions[:5]):  # Limit to first 5 for testing
+    RESULTS_DIR.mkdir(exist_ok=True)
+    VALIDATED_DIR.mkdir(exist_ok=True)
+    REJECTED_DIR.mkdir(exist_ok=True)
+
+    for i, decision in enumerate(decisions[:limit]):
         doc_id = decision.get("id")
-        log(f"  [{i+1}] Karar {doc_id} tam metni alınıyor...", "INFO")
+        log(f"  [{i+1}] Karar {doc_id} isle aliniyor...", "INFO")
 
         try:
+            # Fetch full text
             response = call_tool(
                 "get_emsal_document_markdown",
                 {"id": doc_id},
                 session_id, i + 10
             )
 
-            # Extract text from response
             content = response.get("result", {}).get("content", [])
-            full_text = ""
-            if content:
-                full_text = content[0].get("text", "")
+            full_text = content[0].get("text", "") if content else None
 
-            # Adapt to raw_capture format
+            # Adapt to raw_capture format (SINGLE OBJECT)
             raw_capture = adapter.adapt_emsal_metadata(decision, full_text)
-            raw_captures.append(raw_capture)
-            log(f"       Adapted: {len(full_text)} chars", "OK")
+            char_count = len(full_text) if full_text else len(raw_capture.get("selected_text_excerpt", ""))
+            log(f"       Adapted: {char_count} chars", "OK")
+
+            # Save to single JSON file (NOT array, NOT wrapper object)
+            capture_id = raw_capture["capture_id"]
+            capture_file = RESULTS_DIR / f"{capture_id}.json"
+
+            capture_file.write_text(
+                json.dumps(raw_capture, ensure_ascii=False, indent=2),
+                encoding="utf-8"
+            )
+            log(f"       Saved: {capture_file.name}", "OK")
+
+            # Validate with tsx
+            log(f"       Validating...", "INFO")
+            # Convert Windows path to Bash path for subprocess
+            bash_capture_path = f"/c/yargi-mcp-filex-test/results/{capture_file.name}"
+            result = subprocess.run(
+                ["npx", "tsx", "/c/FilexAI/filex-decision-intelligence/pipeline/intake/validate_raw_capture.ts", "--input", bash_capture_path],
+                cwd="/c/FilexAI/filex-decision-intelligence",
+                capture_output=True,
+                text=True,
+                shell=False
+            )
+
+            print("\n" + "=" * 80)
+            print(f"VALIDATOR: {capture_file.name}")
+            print(f"Exit code: {result.returncode}")
+            if result.stdout:
+                print("STDOUT:", result.stdout[:500])
+            if result.stderr:
+                print("STDERR:", result.stderr[:500])
+            print("=" * 80 + "\n")
+
+            # Classify result
+            try:
+                validator_output = json.loads(result.stdout) if result.stdout else {}
+                routing = validator_output.get("routing", "")
+                if routing == "PASS":
+                    status = "PASS"
+                    results["pass"] += 1
+                    (VALIDATED_DIR / f"PASS_{capture_file.name}").write_text(capture_file.read_text())
+                elif routing == "HOLD":
+                    status = "HOLD"
+                    results["hold"] += 1
+                    (VALIDATED_DIR / f"HOLD_{capture_file.name}").write_text(capture_file.read_text())
+                else:
+                    status = "REJECT"
+                    results["reject"] += 1
+                    (REJECTED_DIR / capture_file.name).write_text(capture_file.read_text())
+            except json.JSONDecodeError:
+                status = "ERROR"
+                results["reject"] += 1
+
+            log(f"       Validator: {status}", "OK" if status in ["PASS", "HOLD"] else "FAIL")
 
         except Exception as e:
-            log(f"       Fetch error: {str(e)[:60]}", "WARN")
-            # Still add with metadata-only excerpt
-            raw_capture = adapter.adapt_emsal_metadata(decision, None)
-            raw_captures.append(raw_capture)
+            log(f"       Error: {str(e)[:60]}", "FAIL")
 
-    return raw_captures
+    return results
 
 
 if __name__ == "__main__":
-    print("=" * 60)
-    print("  yargi-mcp > raw_capture.v1.json Adapter")
+    print("=" * 80)
+    print("  yargi-mcp > raw_capture.v1.json Adapter + Validator")
     print(f"  {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    print("=" * 60)
+    print("=" * 80)
 
     # Initialize session
     session_id = initialize_session()
 
-    # Fetch and adapt
-    raw_captures = fetch_emsal_and_adapt(
+    # Fetch and validate (START WITH 1 DECISION FOR TESTING)
+    results = fetch_emsal_and_validate(
         keyword="menfi tespit borc",
+        limit=1,  # SINGLE DECISION - test the pipeline
         session_id=session_id
     )
 
-    print("\n" + "=" * 60)
-    log(f"Üretilen raw_capture documents: {len(raw_captures)}", "OK")
-
-    # Save to file
-    output_dir = Path(__file__).parent.parent / "results"
-    output_dir.mkdir(exist_ok=True)
-    output_file = output_dir / f"raw_capture_emsal_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
-
-    output_data = {
-        "timestamp": datetime.now().isoformat(),
-        "source": "yargi_mcp_adapter",
-        "adapted_count": len(raw_captures),
-        "documents": raw_captures
-    }
-
-    output_file.write_text(json.dumps(output_data, ensure_ascii=False, indent=2))
-    log(f"Kaydedildi: {output_file}", "OK")
-    print("=" * 60)
+    print("\n" + "=" * 80)
+    print("SUMMARY")
+    print(f"  PASS:   {results['pass']}")
+    print(f"  HOLD:   {results['hold']}")
+    print(f"  REJECT: {results['reject']}")
+    print("=" * 80)
