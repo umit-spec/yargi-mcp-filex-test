@@ -1,418 +1,353 @@
-# Phase 1 Strategy Guide — Filex Architecture Locked
+# Phase 1 Strategy Guide — Testable Hypotheses (Not Locked)
 
-## The Insight (One Sentence)
+**🔴 CRITICAL CAVEAT**
 
-**Filex's value is not court decisions (commodity), not curated decisions (rare), but decision-usage strategy in litigation (defensible moat).**
+This document proposes Layer 3 (Strategic Role) as a **leading moat candidate**.
+
+We have **zero empirical data** to confirm this.
+
+Phase 1's job is to **test whether Layer 3 is actually valuable or just plausible**.
+
+If Phase 1 data shows Strategic Role consistency is low (SRCR <60%), we pivot.
 
 ---
 
-## The 4-Tier Model (How Value Flows)
+## The Hypothesis (Not Proven)
+
+**Layer 3 (Strategic Role) may be the moat IF:**
+1. Cüneyt can articulate it (EER ≥85%)
+2. He's consistent about it (SRCR ≥80%)
+3. Consistency holds across time/metadata/authority
+4. Model can learn the patterns
+
+**If any of these fail, Layer 3 collapses and we need different strategy.**
+
+---
+
+## The 4-Tier Model (Proposed)
 
 ```
 LAYER 1: COURT DECISIONS (Commodity)
          "Here is a court decision"
-         → Anyone can find this (Google, UYAP)
-         → Not differentiated
+         → Anyone can find this
 
 LAYER 2: EXPERT EVALUATION (Rare)
-         "Cüneyt Bey says this is a good decision"
-         → Hard to scale
-         → Better than layer 1, but still just data
+         "Cüneyt Bey says this is good"
+         → Better, but copyable
 
-LAYER 3: STRATEGIC ROLE ⭐ THE MOAT
-         "This decision is used as [primary argument | counter-argument | burden shift | ...]"
-         → Almost nobody captures this
-         → Lawyers actually need this
-         → Creates defensible competitive advantage
+LAYER 3: STRATEGIC ROLE (?)
+         "This decision is used as [primary arg | counter | burden shift | ...]"
+         → Could be moat IF consistent + learnable
+         → Currently unproven
 
-LAYER 4: TOPIC CONTEXT (Searchability)
+LAYER 4: TOPIC CONTEXT (Support)
          "This is about TK 21/2"
-         → Enables layer 3 to be found
-         → Supporting layer, not differentiator
+         → Enables discovery
 ```
 
 ---
 
-## Why Layer 3 Is The Moat
+## Strategic Role (The Bet)
 
-### The Lawyer's Real Problem
+**Hypothesis:** Lawyers don't search "find decisions" — they search "how do I argue X?"
 
-NOT: "Find a court decision"  
-(Google, UYAP, Emsal solve this)
+**If Layer 3 data shows:**
+- High EER (85%+ articulate)
+- High SRCR (80%+ consistent choice of role)
+- Low authority-bias (decisions role-classified by substance, not label)
 
-YES: "How do I use this decision in my case?"  
-(Almost nobody solves this)
+**Then:** Model learns decision-strategy, becomes moat
 
-### Strategic Roles (What We Capture)
+**If data shows:**
+- Low EER (<60% vague explanations)
+- Low SRCR (<60% same decision, different role each time)
+- High authority-bias (role driven by "is it Yargıtay?")
 
-- **Ana daynak** (primary argument): This decision is the core of my case
-- **Destekleyici** (supporting): This confirms my position
-- **Karşı görüşü çürütür** (counter-argument): This refutes opposing counsel
-- **İspat yükü argümanı** (burden shift): This changes who must prove what
-- **Usul argümanı** (procedural): This is a procedural basis
-- **Esas argümanı** (substantive): This is a substantive basis
-
-### Example (Why This Matters)
-
-**Old approach (Layer 1-2):**
-Search: "meskeniyet kararları"  
-Result: 500 court decisions about meskeniyet  
-Problem: Lawyer doesn't know which one to cite for which argument
-
-**New approach (Layer 3):**
-Lawyer states: "I need to argue that the property is inhabited"  
-Result: These 12 decisions work as primary argument → Here's why  
-Layer 3 learned: "These 12 decisions share X characteristics → use as ana daynak"
+**Then:** Layer 3 is not learnable, pivot to Layer 2
 
 ---
 
-## The Five Strategic Documents (Locked for Phase 1)
+## Five Strategic Documents (Temporary)
 
-### 1. CUENEY_REVIEW_MATRIX.md
-**Purpose:** The product manifesto  
-**Contains:** 5-status review decisions (GOLD_APPROVED | KEEP | NEEDS_FIX | REJECT | DUPLICATE)  
-**Why it matters:** Defines what "good curation" means — not volume, not speed, but Layer 3 depth  
-**Key insight:** Cüneyt is not a bottleneck; he is the gatekeeper. His review latency is a feature.
+These five are **working hypotheses**, not final architecture:
 
-### 2. SILVER_DB_ARCHITECTURE.md
-**Purpose:** The database schema and intake staging area  
-**Contains:** SQLite schema for validated-but-unapproved decisions  
-**Why it matters:** Ensures all sources (Chrome Extension, yargi-mcp, future) feed into one pipeline  
-**Key field:** `strategic_role` — layer 3 captured in the database
+1. **CUENEY_REVIEW_MATRIX.md** — Product manifesto (assuming Layer 3 is valuable)
+2. **SILVER_DB_ARCHITECTURE.md** — Schema (includes strategic_role field)
+3. **EXPERT_SIGNAL_MODEL.md** — Learning model (assumes Layer 3 is learnable)
+4. **EXPERT_CONSISTENCY_STUDY.md** — Validation (tests the hypothesis)
+5. **MASTER_PROMPT_SILVER_DB_PHASE_1.md** — Implementation roadmap
 
-### 3. EXPERT_SIGNAL_MODEL.md
-**Purpose:** What we learn from expert judgment  
-**Contains:** The data structure that captures Layer 3 (and Layers 1-2)  
-**Why it matters:** Transforms decisions from "curated list" to "learning dataset"  
-**Real value:** After 100 evaluations with Layer 3 filled in, the model learns decision strategy
-
-### 4. EXPERT_CONSISTENCY_STUDY.md
-**Purpose:** The validation protocol that proves Layer 3 is reproducible  
-**Contains:** EER (Expert Explainability Rate) as primary KPI, plus consistency/metadata/authority tests  
-**Why it matters:** Determines if Cüneyt's Layer 3 judgments are learnable or just intuitive  
-**Success looks like:** EER ≥85% — experts can articulate WHY a decision plays a certain strategic role
-
-### 5. MASTER_PROMPT_SILVER_DB_PHASE_1.md
-**Purpose:** The implementation roadmap  
-**Contains:** 3-phase intake (manual 10 → MVP 100 → cron) + task breakdown  
-**Why it matters:** Prevents scaling disasters (the "early growth intoxication" risk)  
-**Discipline enforced:** 10 perfect → 100 measured → 1000 controlled
+**Status:** All draft until Phase 1 data validates Layer 3
 
 ---
 
-## The Implementation Flow
+## New KPI: SRCR (Strategic Role Classification Rate)
 
+**What it measures:** Does Cüneyt choose the same strategic role for the same decision?
+
+**Test protocol:**
+
+1. Cüneyt reviews decision D on June 20 → marks "Ana daynak"
+2. Same decision shown again on July 20 (without memory)
+3. Does he choose "Ana daynak" again?
+
+**Scoring:**
 ```
-PHASE 1A (Week 1): Proof of Concept
-  └─ Run adapter on 10 decisions (manual)
-  └─ Validator confirms 100% PASS
-  └─ Insert into Silver DB
-  └─ Gate: Schema works, zero PII leakage
+SRCR = (Consistent role assignments / Total repeat reviews) × 100
 
-PHASE 1B (Week 1-2): MVP Collection
-  └─ Expand to 100 decisions (Usulsüz Tebligat + Meskeniyet + İhalenin Feshi)
-  └─ Still manual (not automated)
-  └─ Monitor: duplicate rate, quality
-  └─ Gate: All 100 validated, Cüneyt ready to review
-
-PHASE 1C (Week 2-3): Expert Evaluation
-  └─ Cüneyt reviews 100 decisions via dashboard
-  └─ Records 4-tier evaluation (Outcome | Quality Signals | Strategic Role | Topic)
-  └─ Measures EER (explainability) on Layer 3
-  └─ Gate: EER ≥85%, decisions are articulable
-
-PHASE 1D (Week 3-4): Consistency Validation
-  └─ Run Expert Consistency Study on subset (50 decisions, repeat at day 30)
-  └─ Metadata sensitivity test (strip labels, retest)
-  └─ Authority bias test (relabel authority, retest)
-  └─ Results: ECR, MI, AI scores
-  └─ Gate: Heuristics are reproducible (or redesign if not)
-
-PHASE 1E (Week 4+): Daily Automation
-  └─ Only after all gates pass
-  └─ Schedule: daily cron, 23:00 UTC
-  └─ Intake: search Emsal → fetch text → validate → Silver DB
-  └─ Logging: Slack notifications, weekly dashboard
-  └─ Gate: 7 days unattended, zero errors
+Example:
+- 50 decisions, each reviewed twice (day 0 and day 30)
+- 42 chose same strategic role both times
+- 8 changed strategic role between reviews
+- SRCR = 42/50 = 84%
 ```
 
+**Success threshold:** SRCR ≥80%  
+**Red flag:** SRCR <60% (Layer 3 not stable)
+
 ---
 
-## The 4-Tier UI (How Cüneyt Evaluates)
+## Phase 1 Timeline (Hypothesis Testing)
+
+### Week 1: Proof of Concept
+- Create SQLite schema (with strategic_role field)
+- Build minimal review UI (10 decisions)
+- Cüneyt reviews 10 decisions via 4-tier form
+- **Test goal:** Can UI capture all 4 tiers without friction?
+- **Artifact:** 10 reviews with Layer 3 filled in
+- **Gate:** UI is usable (yes/no)
+
+### Week 2: MVP Collection + First Consistency Check
+- Expand to 100 decisions (Usulsüz Tebligat + Meskeniyet + İhalenin Feshi)
+- Cüneyt does first pass (records Layer 3 for all 100)
+- Select 50 of those 100 for day-30 repeat review
+- **Test goal:** Measure SRCR on strategic role choices
+- **Artifact:** 100 initial reviews + 50 repeat reviews
+- **Gate:** SRCR ≥60% (minimal consistency to continue)
+
+### Week 3: Consistency Study Full Validation
+- Show 50 decisions again (day 30, masked)
+- Calculate SRCR (same role choices?)
+- Run metadata-strip test (does removing mahkeme/esas/tarih change role choice?)
+- Run authority-relabel test (does changing "Yargıtay" to "İlk Derece" change role?)
+- **Test goal:** Is Layer 3 substance-based or label-based?
+- **Artifact:** SRCR, MI (metadata independence for Layer 3), AI (authority independence)
+- **Gate:** SRCR ≥80% (Layer 3 is stable enough to continue)
+
+### Week 4+: Scaling (Only if Gates Pass)
+
+If SRCR ≥80%:
+- Daily cron intake
+- Ongoing Layer 3 evaluation
+- Monitor consistency over time
+- Begin training decision-strategy model
+
+If SRCR <60%:
+- Halt intake
+- Investigate: Why inconsistent?
+- Options:
+  - Cüneyt needs training on Layer 3 definitions
+  - Layer 3 is inherently unstable (abandon as moat)
+  - Need different categorization (pivot)
+
+---
+
+## The Real Test (UI > Docs)
+
+**This week's docs are smart thinking.**
+
+**Next week's UI is the reality check.**
+
+When Cüneyt sits down and reviews 10 actual decisions:
+
+- Does he naturally use Layer 3 categories?
+- Or does he force-fit decisions into boxes?
+- Does "Ana daynak" feel right, or does it feel arbitrary?
+- Can he explain WHY a decision is "Ana daynak" vs "Destekleyici"?
+
+**That UX reality will be worth more than all of tonight's strategy documents.**
+
+---
+
+## Possible Outcomes of Phase 1
+
+### Outcome A (Best Case)
+```
+EER ≥85%: Experts articulate Layer 3 clearly
+SRCR ≥80%: Same role for same decision (consistent)
+MI ≥80%: Role choice based on substance, not label
+AI: Authority matters but not deterministic
+
+→ Layer 3 is learnable, moat is real
+→ Proceed to Phase 2 with confidence
+→ Investor pitch: "We learned decision strategy"
+```
+
+### Outcome B (Promising)
+```
+EER ≥85%: Clear articulation
+SRCR 60-79%: Somewhat consistent
+MI 60-75%: Somewhat substance-based
+
+→ Layer 3 has promise but needs refinement
+→ Redesign Layer 3 categories? More training?
+→ Continue but with skepticism
+```
+
+### Outcome C (Concerning)
+```
+EER <70%: Vague explanations
+SRCR <60%: Same decision, wildly different roles
+MI <60%: Role driven by "is it Yargıtay?"
+
+→ Layer 3 is not stable enough to learn
+→ Halt Layer 3 as moat strategy
+→ Pivot to Layer 2 (curation) or different approach
+→ Possibly add more structured Layer 3 definitions
+```
+
+### Outcome D (Worst Case)
+```
+EER <50%: "İyi karar, kötü karar" only
+SRCR <40%: No pattern
+Cüneyt can't explain reasoning
+
+→ Expert judgment is intuitive, not systematizable
+→ Filex is a curated database (nice, but not moat)
+→ Licensing/scaling becomes hard
+→ Rethink entire strategy
+```
+
+---
+
+## What Phase 1 Actually Proves
+
+**NOT:** Layer 3 is the moat (too early)
+
+**YES:** Whether Layer 3 can be systematically captured
+
+If SRCR ≥80%: Yes, we can systematically capture it → potential moat
+
+If SRCR <60%: No, it's unstable → need different approach
+
+---
+
+## The UI That Matters
+
+**Don't build for 100 decisions yet.**
+
+Build for **10 decisions with review history:**
 
 ```
-════════════════════════════════════════════════════════════════
-
-KARAR REVIEW
-
-════════════════════════════════════════════════════════════════
-
-[Decision summary excerpt from Silver DB]
-
-════════════════════════════════════════════════════════════════
-
-SEVİYE 1: KARAR SONUCU (Decision Outcome)
-
-( ) GOLD_APPROVED
-( ) KEEP_IN_SILVER
-( ) NEEDS_METADATA_FIX
-( ) REJECT
-( ) DUPLICATE
-
-════════════════════════════════════════════════════════════════
-
-SEVİYE 2: KALİTE SİNYALLERİ (Quality Signals)
-
-☐ Güçlü içtihat (strong precedent)
-☐ Yerleşik uygulama (established practice)
-☐ Dilekçede kullanılabilir (usable in brief)
-☐ Güncel yaklaşım (current approach)
-☐ HGK desteği (HGK support)
-☐ Çelişkili karar (conflicting)
-☐ Tekil olay (unique case)
-
-════════════════════════════════════════════════════════════════
-
-SEVİYE 3: STRATEJİK ROL ⭐ CRITICAL (Strategic Role)
-
-How would an avukat use this decision in case strategy?
-
-☐ Ana daynak (primary argument)
-☐ Destekleyici içtihat (supporting)
-☐ Karşı görüşü çürütür (counter-argument)
-☐ İspat yükü argümanı (burden shifting)
-☐ Usul argümanı (procedural)
-☐ Esas argümanı (substantive)
-
-════════════════════════════════════════════════════════════════
-
-SEVİYE 4: KONU ETİKETİ (Topic Tag)
-
-Which legal area?
-
-☐ TK 21/2 (Usulsüz Tebligat)
-☐ TK 35 (Yetki)
-☐ Meskeniyet
-☐ Haciz
-☐ İhalenin Feshi
-☐ İtirazın İptali
-☐ İspat Yükü
-☐ Sabit Olmayan Borç
-
-════════════════════════════════════════════════════════════════
-
-OPSİYONEL NOT (Optional Notes)
-
-[...................]
-
-[KAYDET / SONRAKI]
-
-════════════════════════════════════════════════════════════════
+┌─────────────────────────────────────────┐
+│ Silver DB Review UI (MVP)                │
+├─────────────────────────────────────────┤
+│                                          │
+│ [DECISION 1 of 10]                      │
+│                                          │
+│ Mahkeme: Ankara BAM, 4. Hukuk            │
+│ Esas: 2024/512                          │
+│ Tarih: 15.03.2024                       │
+│ [Summary...]                            │
+│                                          │
+│ ───────────────────────────────────────│
+│                                          │
+│ TIER 1: OUTCOME                         │
+│ ( ) GOLD_APPROVED                       │
+│ ( ) KEEP_IN_SILVER                      │
+│ ( ) REJECT                              │
+│                                          │
+│ TIER 2: QUALITY SIGNALS                 │
+│ ☐ Güçlü içtihat                        │
+│ ☐ Yerleşik uygulama                    │
+│                                          │
+│ TIER 3: STRATEGIC ROLE                  │
+│ ☐ Ana daynak                            │
+│ ☐ Destekleyici                          │
+│ ☐ Karşı görüşü çürütür                │
+│ ☐ İspat yükü                            │
+│ ☐ Usul                                  │
+│ ☐ Esas                                  │
+│                                          │
+│ TIER 4: TOPIC                           │
+│ ☐ TK 21/2                               │
+│ ☐ Meskeniyet                            │
+│                                          │
+│ ───────────────────────────────────────│
+│                                          │
+│ [SAVE] [NEXT] [HISTORY]                │
+│                                          │
+└─────────────────────────────────────────┘
 ```
 
-**Why 4 tiers:**
-- Tier 1 = Traditional quality gate
-- Tier 2 = Expert opinion on strengths
-- **Tier 3 = THE MOAT** (decision purpose in litigation)
-- Tier 4 = Discoverability
+With **[HISTORY]** button showing:
+- When reviewed
+- What was selected (all 4 tiers)
+- What changed
+
+This is the **real experiment**.
 
 ---
 
-## Success Metrics (Not What You'd Expect)
+## What Gets Built This Week
 
-### What We Measure ✅
+**Stop writing docs. Start building UI.**
 
-**Expert Explainability Rate (EER)**
-- Goal: ≥85% of decisions have articulate Layer 3 reasoning
-- Why: If experts can explain WHY a decision has a strategic role, we can learn it
-- Red flag: <70% (decisions are intuitive, not learnable)
+1. **SilverReviewPage** (React/Python CLI)
+   - Display 1 decision
+   - 4-tier checkbox form
+   - Save button
+   
+2. **Database tables:**
+   - review_result (outcome)
+   - expert_signals (tier 2 + 3 + 4 as JSON)
+   - strategic_role (explicit: ana_daynak | destekleyici | etc)
+   - review_timestamp
 
-**Expert Consistency Rate (ECR)**
-- Goal: ≥85% consistency on repeat reviews
-- Why: Shows heuristics are reproducible, not mood-dependent
-- Red flag: <70% (judgment is not stable)
+3. **Review history view**
+   - Show all reviews of same decision
+   - Compare: what changed between reviews?
 
-**Metadata Independence (MI)**
-- Goal: ≥80% same decision-making when metadata stripped
-- Why: Shows judgment is substance-based, not authority-label-driven
-- Red flag: <60% (could use simple heuristics, not ML)
+4. **Gold promotion button**
+   - Move GOLD_APPROVED to Gold DB
+   - Audit trail
 
-### What We Do NOT Measure ❌
-
-**Approval rate** (target 70%)  
-→ Wrong metric (good curation has 20-40% approval)
-
-**Review speed** (target X decisions/hour)  
-→ Wrong metric (depth over speed)
-
-**Gold DB size** (target 100 decisions)  
-→ Wrong metric (quality over quantity)
+**That's it. 4 things. Week 1 = done.**
 
 ---
 
-## The Risk We're Preventing
+## The Honest Assessment
 
-**"Early Growth Intoxication"**
+**Strategic docs say:** Layer 3 is the moat!
 
-The temptation at this stage: "We have 100 decisions, let's scale to 1000 now!"
+**Reality check says:** We don't know yet. We're guessing.
 
-The reality: Without validated Layer 3 (Strategic Role) signals and proven EER, scaling just gives us a bigger database, not a bigger moat.
+**Phase 1 is the bet that our guess is right.**
 
-**The discipline we enforce:**
-1. 10 decisions: Proof Validator works
-2. 100 decisions: Proof EER is ≥85%
-3. 100+ validated signals: Proof model is trainable
-4. Only then: Scale to 1000
+**If Phase 1 data proves SRCR ≥80%, we win.**
 
-**This is the moment Filex either becomes:**
-- ✅ An expertise-as-asset company (Layer 3 captured, moat real)
-- ❌ A nice legal database (Layer 1-2 only, commodity)
+**If SRCR <60%, we need a different bet.**
+
+Either way, **Phase 1 gives us data instead of theories.**
 
 ---
 
-## Competitive Positioning
+## Next Conversation
 
-### What Competitors Can Do
+When you reconvene:
 
-- ✅ Collect court decisions (free data, trivial)
-- ✅ Build a search engine (technical, not complex)
-- ✅ Hire expert curator (hires Cüneyt-like person)
-- ✅ Create curated database (slower than Filex, but doable)
+❌ Don't update these docs more  
+✅ Build SilverReviewPage  
+✅ Run adapter on 10 decisions  
+✅ Cüneyt reviews 10 via UI  
+✅ Measure: Is UI usable? Does Layer 3 feel natural?
 
-### What Competitors Cannot Do (The Moat)
-
-- ❌ Systematize decision-usage strategy (Layer 3)
-- ❌ Capture expert judgment at scale (requires protocol + discipline)
-- ❌ Build decision-strategy model (requires 100+ Layer 3 evaluations + ML)
-- ❌ Train lawyers on "how to use decisions" (requires strategy framework)
-
-### The Investor Pitch (Revised)
-
-**Version A (Before Phase 1):**
-"We curate high-quality court decisions"  
-→ Worth: $X
-
-**Version B (After Phase 1, EER validated):**
-"We've systematized how expert lawyers choose and use decisions in litigation. Our model learns decision strategy, not just decision quality. Lawyers don't search for 'good cases' — they search for 'how do I argue this?' We answer that question."  
-→ Worth: $10X
+That feedback is worth 1000x the docs.
 
 ---
 
-## Architecture Decision Log (Why These Choices)
+*Phase 1 Strategy Guide v1.1 (Revised)*
 
-### Decision: Why SQLite Silver DB (not dump to Gold)?
+*This is a testable hypothesis, not a locked strategy.*
 
-**Choice:** All intake goes to Silver DB first, Cüneyt reviews before promotion to Gold
-
-**Alternatives:** Auto-promote validated decisions to Gold  
-**Rejected because:**
-- Gold DB integrity must be maintained
-- Validator proves schema, not quality
-- Cüneyt's Layer 3 evaluation is what creates value
-- Without human gate, we're just a big database
-
-**Cost:** Slower time-to-Gold (but worth it)
-
-### Decision: Why 4-tier UI (not just approve/reject)?
-
-**Choice:** Tier 1-4 structure forces capture of Layer 3
-
-**Alternatives:** Simple APPROVED/REJECTED buttons  
-**Rejected because:**
-- Would lose Strategic Role data
-- Would miss the moat
-- Cüneyt's judgment would be lost, not learned
-
-**Cost:** Slower review time (but higher value per review)
-
-### Decision: Why EER > ECR (explainability > consistency)?
-
-**Choice:** Can explain inconsistency = success. Can't explain consistency = failure.
-
-**Why:**
-- Law legitimately evolves (2022 HGK ≠ 2024 İBK)
-- Inconsistency is OK if articulated ("The law changed, here's why")
-- Consistency that's inarticulate is noise
-
-**Cost:** Requires cultural shift (consistency ≠ always good)
-
----
-
-## Implementation Checklist (Week by Week)
-
-### Week 1: Foundation
-- [ ] Create SQLite schema (silver_decisions.db)
-- [ ] Build CLI dashboard for Cüneyt review
-- [ ] Run adapter on 10 test decisions
-- [ ] Validate schema, zero PII
-- [ ] Gate: 10/10 PASS
-
-### Week 1-2: MVP Collection
-- [ ] Expand intake to 100 decisions
-- [ ] Monitor duplicates, quality
-- [ ] Prepare Cüneyt review export
-- [ ] Gate: 100 decisions in Silver DB
-
-### Week 2-3: Expert Evaluation
-- [ ] Cüneyt reviews 100 via 4-tier dashboard
-- [ ] Captures all 4 tiers (especially Tier 3)
-- [ ] Records expert notes
-- [ ] Measures EER on Tier 3
-- [ ] Gate: EER ≥85%
-
-### Week 3-4: Consistency Study
-- [ ] Run repeat-review test (50 decisions, day 30)
-- [ ] Run metadata-strip test (20 decisions)
-- [ ] Run authority-relabel test (15 decisions)
-- [ ] Calculate ECR, MI, AI scores
-- [ ] Gate: All tests ≥70%
-
-### Week 4+: Automation
-- [ ] Daily cron job (only after all gates pass)
-- [ ] Intake: search → validate → Silver DB
-- [ ] Monitor: weekly dashboard
-- [ ] Logging: Slack notifications
-- [ ] Gate: 7 days unattended, zero errors
-
----
-
-## The Bet We're Making
-
-We are betting that:
-
-1. **Cüneyt's Layer 3 judgments are explainable** (EER ≥85%)
-2. **His judgments are reproducible** (ECR ≥85%)
-3. **His judgments are substance-based** (MI ≥80%)
-4. **His judgments can be learned by a model** (after 100+ Layer 3 signals)
-
-**If we win:** Filex is defensible, scalable, licensable  
-**If we lose:** Filex is a nice curated database (not a moat)
-
----
-
-## The Moment of Truth
-
-**Phase 1 is the validation phase.**
-
-Not the collection phase. Not the scaling phase. The validation phase.
-
-By end of Phase 1:
-- We will know if Cüneyt's judgment is learnable
-- We will have 100 structured Layer 3 evaluations
-- We will have an artifact (the model, the signals) worth licensing
-
-Or:
-
-- We will know curation at scale requires humans (Cüneyt remains bottleneck)
-- We will have a nice curated database (not a moat)
-- We will pivot to different strategy
-
-**Either way, Phase 1 answers the fundamental question: Is this expertise-as-asset or data-as-asset?**
-
----
-
-**Phase 1 Strategy Guide v1.0 — Locked for execution**
-
-The path: 10 perfect → 100 measured → 1000 controlled.
-
-Execute with discipline. The moat is Layer 3. Layer 3 is the prize.
+*Phase 1 exists to prove or disprove it.*

@@ -189,6 +189,32 @@ Example:
 **Target ECR:** ≥85% (indicates reproducible judgment)  
 **Red flag ECR:** <70% (indicates unreliable heuristics)
 
+---
+
+### Strategic Role Classification Rate (SRCR) ⭐ NEW
+
+**This is the critical test for Layer 3.**
+
+```
+SRCR = (Same strategic role chosen / Total repeat reviews) × 100
+
+Example:
+- 50 decisions, each reviewed at Day 0 and Day 30
+- Decision A: Day 0 = "Ana daynak", Day 30 = "Ana daynak" ✓
+- Decision B: Day 0 = "Destekleyici", Day 30 = "Ana daynak" ✗
+- Decision C: Day 0 = "Karşı görüşü çürütür", Day 30 = "Karşı görüşü çürütür" ✓
+- ...repeat for all 50
+- Example: 42 kept same role, 8 switched
+- SRCR = 42/50 = 84%
+```
+
+**What it measures:** Is Layer 3 (Strategic Role) a stable judgment?
+
+**Target SRCR:** ≥80% (Layer 3 is consistent)  
+**Red flag SRCR:** <60% (Layer 3 is unstable, not learnable)  
+
+**Why it matters:** If Cüneyt chooses different strategic roles for the same decision at different times, Layer 3 isn't systematic — it's intuitive. If SRCR is high, Layer 3 can be learned by a model.
+
 ### Metadata Independence (MI)
 
 ```
