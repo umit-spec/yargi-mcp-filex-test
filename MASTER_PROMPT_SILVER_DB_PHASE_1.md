@@ -124,22 +124,42 @@ See `SILVER_DB_ARCHITECTURE.md` for full details. Quick overview:
 
 **Validation:** Can Cüneyt review 10 decisions in <5 minutes? Yes/No + UX issues
 
-### Task 3: Intake Pipeline (Cron Job)
+### Task 3: Intake Pipeline (Phased Approach)
 
 **Current state:** Manual adapter runs in `pipeline/yargi_mcp_adapter.py`  
-**Your task:**
-- [ ] Schedule: daily 23:00 UTC (or other off-peak?)
+**Your task (DO NOT rush to daily cron):**
+
+**Phase A — Manual Batch (First)**
+- [ ] Run adapter manually: 10 decisions
+- [ ] Validator check (should be 100% PASS)
+- [ ] Insert into Silver DB
+- [ ] Export for Cüneyt review (JSON list)
+- [ ] Validate schema integrity
+- [ ] Zero errors, zero PII leakage
+- **Gate:** 10/10 Validator PASS + schema validated
+
+**Phase B — Controlled 100-Decision MVP (Second)**
+- [ ] Expand to 100 decisions (Usulsüz Tebligat + Meskeniyet + İhalenin Feshi)
+- [ ] Still manual batch run (not automated)
+- [ ] Monitor: duplicate rate, PII flags, metadata quality
+- [ ] Cüneyt Bey reviews sample (20+ decisions)
+- **Gate:** All 100 Validator PASS + review feedback incorporated
+
+**Phase C — Daily Cron (Last)**
+- [ ] Only after Phase B succeeds
+- [ ] Schedule: daily 23:00 UTC
 - [ ] Intake logic:
-  1. Search Emsal with topic keywords (usulsuz_tebligat, meskeniyet, ihaleinin_feshi)
+  1. Search Emsal with topic keywords
   2. For each result: fetch full text
   3. Run adapter → raw_capture.v1.json
   4. Run validator → context_packet
   5. If PASS: INSERT into silver_decisions
   6. If HOLD/REJECT: log (don't insert)
-- [ ] Logging: What goes to Slack? To file?
-- [ ] Idempotency: prevent duplicates on re-run?
+- [ ] Logging: Slack notification of new Silver decisions + counts
+- [ ] Idempotency: hash-based dedup to prevent re-insertion
+- **Gate:** 7 days unattended operation, zero errors
 
-**Validation:** Can it run unattended for 7 days without human intervention? Yes/No + failure modes
+**Timeline:** Manual (week 1) → MVP (week 1-2) → Cron (week 2+, if ready)
 
 ### Task 4: Duplicate Detection
 
@@ -245,15 +265,22 @@ For each design decision, evaluate:
 
 Silver DB Phase 1 succeeds when:
 
-✅ 100 decisions collected (Usulsüz Tebligat + Meskeniyet + İhalenin Feshi)  
-✅ 100% reviewed by Cüneyt Bey  
-✅ ≥70% APPROVED rate → Gold DB  
-✅ <10% REJECT rate  
-✅ 0 duplicates  
-✅ 0 Gold DB contamination  
-✅ All metrics pass gate → Phase 2 approved
+✅ 100 decisions collected into Silver DB  
+✅ 100% Validator contract compliance (zero schema errors)  
+✅ 0 automatic Gold DB writes  
+✅ 0 PII leakage  
+✅ Duplicate rate measured (expect 5-15% — normal in legal data)  
+✅ Cüneyt Bey reviewed at least 20 decisions  
+✅ Review decisions recorded (GOLD_APPROVED/KEEP_IN_SILVER/NEEDS_METADATA_FIX/REJECT/DUPLICATE)  
+✅ At least 5-10 decisions marked GOLD_APPROVED → Gold DB (or 0 if Cüneyt judges none ready)  
 
-**Timeline:** 2-3 weeks (allow time for Cüneyt Bey's review schedule)
+**Success is NOT:**
+- ❌ 70% APPROVED rate (too optimistic for MVP filtering)
+- ❌ <10% REJECT rate (high reject = filter working correctly)
+- ❌ 100% Cüneyt review (20 reviewed = statistical confidence for improvements)
+- ❌ Rapid scale to 1000 (premature)
+
+**Timeline:** 3-4 weeks (Cüneyt review pace is the constraint, not pipeline speed)
 
 ---
 
@@ -323,12 +350,28 @@ You can answer these questions in <30 seconds each:
 
 ---
 
+## Filex's Competitive Advantage
+
+**NOT:** collecting the most court decisions  
+**NOT:** fastest decision database  
+**NOT:** cheapest data pipeline
+
+**YES:** Using Cüneyt Bey's expert judgment to curate Gold DB from volumes of candidate decisions.
+
+Gold DB quality, not quantity, is Filex's moat.
+
+Silver DB's job is to scale that curation.
+
+---
+
 **This is the moment Filex architecture scales beyond Chrome Extension.**
 
 **Execute with the discipline that this is a gate-locked MVP, not a bulk data project.**
 
-**Cüneyt Bey remains the expert authority.**
+**The path: 10 decisions (perfect) → 100 decisions (measured) → 1000 decisions (controlled).**
+
+**Cüneyt Bey remains the expert authority. Silver DB serves him, not the other way around.**
 
 ---
 
-*Master Prompt v1.0 | Silver DB Phase 1 | Ready for Principal Architect*
+*Master Prompt v1.1 (Revised) | Silver DB Phase 1 | Ready for Principal Architect*

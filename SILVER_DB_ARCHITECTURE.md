@@ -4,10 +4,14 @@
 
 Silver DB adalah **validated but unapproved** decision candidate repository.
 
+**Critical:** Silver DB is NOT a data warehouse.  
+**Silver DB is an expert-review staging area.**
+
 - ✅ Validator kapısından geçen kararlar
 - ⏳ Cüneyt Bey review bekleyen kararlar  
 - ❌ Gold DB'ye ASLA otomatik yazım
 - 🔄 Chrome Extension + yargi-mcp + future sources → unified intake
+- 🎯 **Purpose: Scale Cüneyt Bey's expert judgment across volumes of candidate data**
 
 ---
 
@@ -114,10 +118,11 @@ For each Silver decision, Cüneyt Bey selects:
 
 | Status | Meaning | Action |
 |--------|---------|--------|
-| **APPROVED** | Move to Gold DB | Prompt: "Ready for Gold?" |
-| **KEEP_IN_SILVER** | Keep for future | Auto-archive after 6 months |
-| **NEEDS_METADATA_FIX** | Reject until fixed | Show metadata form |
-| **REJECT** | Remove from Silver | Move to archive |
+| **GOLD_APPROVED** | Move to Gold DB | Insert into gold_decisions, set gold_promoted_at |
+| **KEEP_IN_SILVER** | Keep for future | Auto-archive after 6 months, revisit later |
+| **NEEDS_METADATA_FIX** | Fix required | Show metadata editor, request re-submission |
+| **REJECT** | Not suitable | Mark is_duplicate=false, move to archive |
+| **DUPLICATE** | Already in Silver | Mark is_duplicate=true, link to duplicate_of capture_id |
 
 ### Quality Assessment
 
@@ -166,16 +171,23 @@ Display per decision:
 
 ### Validation Criteria (before 200+ decisions)
 
-✅ Cüneyt Bey reviewed 100% of MVP  
-✅ APPROVED rate ≥ 70% (70+ to Gold)  
-✅ NEEDS_METADATA_FIX rate ≤ 15%  
-✅ REJECT rate ≤ 10%  
-✅ No duplicates detected  
-✅ PII screening passed all 100  
-✅ Validator errors = 0  
+✅ All 100 decisions passed Validator contract (zero schema errors)  
+✅ Duplicate detection functional (measure %, don't require 0%)  
+✅ PII screening passed (no sensitive data leaked to Silver)  
+✅ Cüneyt Bey reviewed minimum 20 decisions (sample validation)  
+✅ Review outcomes recorded (GOLD_APPROVED / KEEP / NEEDS_FIX / REJECT / DUPLICATE counts)  
+✅ At least 5 decisions marked GOLD_APPROVED (or 0 if Cüneyt judges none ready — acceptable)  
+✅ Pipeline ran 7 days unattended without manual intervention  
+✅ No automatic writes to Gold DB  
 
-**If all pass:** Release Phase 2 (200 more decisions)  
-**If any fail:** Halt, review root cause, adjust pipeline
+**Success interpretation:**
+- High REJECT rate? → Filter working (normal, healthy)
+- Low APPROVED rate? → Cüneyt is selective (correct, desired)
+- Duplicates found? → Dedup mechanism works (good)
+
+**If all criteria met:** Release Phase 2 (200 more decisions)  
+**If any fail:** Halt, review root cause, adjust pipeline  
+**If Cüneyt rates APPROVE at 0%:** Still success (he's the expert — we trust his judgment)
 
 ---
 
