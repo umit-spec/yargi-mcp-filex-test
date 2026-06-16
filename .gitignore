@@ -6,3 +6,10 @@ results/*.txt
 .env
 .vscode/
 .DS_Store
+
+# Generated MCP crawl/intake outputs
+results/silver_intake/
+results/pro_raw/
+results/pro_single/
+*.log
+_checkpoint.json
