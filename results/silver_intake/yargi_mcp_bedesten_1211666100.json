@@ -1,0 +1,17 @@
+{
+  "captureId": "yargi_mcp_bedesten_1211666100",
+  "source": "yargi_mcp",
+  "topic": "Maaş Haczi",
+  "court": "Denizli Bölge Adliye Mahkemesi 4. Hukuk Dairesi",
+  "chamber": "Denizli Bölge Adliye Mahkemesi 4. Hukuk Dairesi",
+  "esasNo": "2026/1513",
+  "kararNo": "2026/1306",
+  "decisionDate": "2026-06-04",
+  "summary": "ERROR (rate_limit_exceeded, HTTP 429): Bedesten API rate limit aşıldı (HTTP 429 Too Many Requests). Lütfen kısa bir süre bekleyip belgeyi tekrar talep edin. Yargı MCP'nin daha hızlı ve profesyonel versiyonunu test etmek için beta sürümüne k",
+  "decisionText": "ERROR (rate_limit_exceeded, HTTP 429): Bedesten API rate limit aşıldı (HTTP 429 Too Many Requests). Lütfen kısa bir süre bekleyip belgeyi tekrar talep edin. Yargı MCP'nin daha hızlı ve profesyonel versiyonunu test etmek için beta sürümüne kaydolabilirsiniz: https://yargi.betaspacestudio.com Retry-After: 21",
+  "sourceUrl": null,
+  "authorityLevel": "BAM",
+  "piiSeen": false,
+  "piiSignals": null,
+  "reviewRequired": true
+}

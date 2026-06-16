@@ -1,0 +1,17 @@
+{
+  "captureId": "yargi_mcp_bedesten_1210880900",
+  "source": "yargi_mcp",
+  "topic": "İtirazın Kaldırılması",
+  "court": "Yargıtay",
+  "chamber": "12. Hukuk Dairesi",
+  "esasNo": "2026/2924",
+  "kararNo": "2026/2572",
+  "decisionDate": "2026-04-20",
+  "summary": "ERROR (rate_limit_exceeded, HTTP 429): Bedesten API rate limit aşıldı (HTTP 429 Too Many Requests). Lütfen kısa bir süre bekleyip belgeyi tekrar talep edin. Yargı MCP'nin daha hızlı ve profesyonel versiyonunu test etmek için beta sürümüne k",
+  "decisionText": "ERROR (rate_limit_exceeded, HTTP 429): Bedesten API rate limit aşıldı (HTTP 429 Too Many Requests). Lütfen kısa bir süre bekleyip belgeyi tekrar talep edin. Yargı MCP'nin daha hızlı ve profesyonel versiyonunu test etmek için beta sürümüne kaydolabilirsiniz: https://yargi.betaspacestudio.com Retry-After: 25",
+  "sourceUrl": null,
+  "authorityLevel": "YARGITAY_DAIRE",
+  "piiSeen": false,
+  "piiSignals": null,
+  "reviewRequired": true
+}

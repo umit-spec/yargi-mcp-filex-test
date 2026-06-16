@@ -1,0 +1,17 @@
+{
+  "captureId": "yargi_mcp_bedesten_1211308200",
+  "source": "yargi_mcp",
+  "topic": "İtirazın Kaldırılması",
+  "court": "Yargıtay",
+  "chamber": "12. Hukuk Dairesi",
+  "esasNo": "2025/9751",
+  "kararNo": "2026/2608",
+  "decisionDate": "2026-04-21",
+  "summary": "ERROR (rate_limit_exceeded, HTTP 429): Bedesten istemci tarafı eşzamanlılık sınırına ulaşıldı (yerel token-bucket dolu). Lütfen kısa bir süre bekleyip belgeyi tekrar talep edin. Yargı MCP'nin daha hızlı ve profesyonel versiyonunu test etmek",
+  "decisionText": "ERROR (rate_limit_exceeded, HTTP 429): Bedesten istemci tarafı eşzamanlılık sınırına ulaşıldı (yerel token-bucket dolu). Lütfen kısa bir süre bekleyip belgeyi tekrar talep edin. Yargı MCP'nin daha hızlı ve profesyonel versiyonunu test etmek için beta sürümüne kaydolabilirsiniz: https://yargi.betaspacestudio.com Retry-After: 14.2",
+  "sourceUrl": null,
+  "authorityLevel": "YARGITAY_DAIRE",
+  "piiSeen": false,
+  "piiSignals": null,
+  "reviewRequired": true
+}

@@ -1,0 +1,296 @@
+[OK] Session: efabd937418f4863...
+========================================================================
+  Bedesten → Silver intake  |  2026-06-16T14:44:24.071560+00:00
+  çıktı: C:\yargi-mcp-filex-test\results\silver_intake  |  courts=['YARGITAYKARARI']
+========================================================================
+[INFO] [Usulsüz Tebligat] hedef 200, mevcut 107 — 'usulsüz tebligat' (courts=['YARGITAYKARARI'])
+[OK]     [108/200] YARGITAY_DAIRE 2025/5095/2026/2735 (2026-05-04) 5250c
+[OK]     [109/200] YARGITAY_DAIRE 2025/5103/2026/2737 (2026-05-04) 6323c
+[OK]     [110/200] YARGITAY_DAIRE 2025/5684/2026/2741 (2026-05-04) 6699c
+[OK]     [111/200] YARGITAY_DAIRE 2025/5091/2026/2734 (2026-05-04) 4369c
+[OK]     [112/200] YARGITAY_DAIRE 2025/5685/2026/2742 (2026-05-04) 4938c
+[OK]     [113/200] YARGITAY_DAIRE 2025/5689/2026/2744 (2026-05-04) 6473c
+[OK]     [114/200] YARGITAY_DAIRE 2025/5100/2026/2736 (2026-05-04) 5316c
+[OK]     [115/200] YARGITAY_DAIRE 2026/42/2026/2641 (2026-04-21) 7656c
+[OK]     [116/200] YARGITAY_DAIRE 2025/8403/2026/2533 (2026-04-20) 2011c
+[OK]     [117/200] YARGITAY_DAIRE 2024/5435/2026/2557 (2026-04-15) 307c
+[OK]     [118/200] YARGITAY_DAIRE 2025/3732/2026/2558 (2026-04-15) 330c
+[OK]     [119/200] HGK 2025/427/2026/266 (2026-04-15) 330c
+[OK]     [120/200] YARGITAY_DAIRE 2026/2778/2026/2529 (2026-04-10) 330c
+[OK]     [121/200] YARGITAY_DAIRE 2024/933/2026/2414 (2026-04-09) 330c
+[OK]     [122/200] YARGITAY_DAIRE 2024/581/2026/2415 (2026-04-09) 330c
+[WARN]     429 — 12s bekleniyor (deneme 1/5)
+[OK]     [123/200] YARGITAY_DAIRE 2026/188/2026/2421 (2026-04-09) 307c
+[OK]     [124/200] HGK 2025/698/2026/234 (2026-04-08) 330c
+[OK]     [125/200] HGK 2025/14/2026/232 (2026-04-08) 330c
+[OK]     [126/200] HGK 2025/644/2026/233 (2026-04-08) 330c
+[OK]     [127/200] YARGITAY_DAIRE 2026/2545/2026/2446 (2026-04-08) 330c
+[OK]     [128/200] YARGITAY_DAIRE 2026/2172/2026/2399 (2026-04-08) 330c
+[OK]     [129/200] YARGITAY_DAIRE 2025/9806/2026/2340 (2026-04-07) 330c
+[OK]     [130/200] YARGITAY_DAIRE 2025/8862/2026/3668 (2026-04-06) 330c
+[WARN]     429 — 12s bekleniyor (deneme 1/5)
+[OK]     [131/200] YARGITAY_DAIRE 2025/4349/2026/2665 (2026-04-06) 6213c
+[OK]     [132/200] YARGITAY_DAIRE 2026/1955/2026/2271 (2026-04-06) 3662c
+[OK]     [133/200] YARGITAY_DAIRE 2025/4243/2026/2232 (2026-04-02) 1677c
+[OK]     [134/200] YARGITAY_DAIRE 2025/4470/2026/2597 (2026-04-02) 1058c
+[OK]     [135/200] YARGITAY_DAIRE 2025/9584/2026/2246 (2026-04-02) 13045c
+[OK]     [136/200] HGK 2025/391/2026/211 (2026-04-01) 15476c
+[OK]     [137/200] YARGITAY_DAIRE 2025/10524/2026/5533 (2026-04-01) 6407c
+[OK]     [138/200] HGK 2025/554/2026/212 (2026-04-01) 307c
+[OK]     [139/200] YARGITAY_DAIRE 2025/10234/2026/5454 (2026-03-31) 330c
+[OK]     [140/200] YARGITAY_DAIRE 2025/10996/2026/5450 (2026-03-31) 330c
+[WARN]     429 — 17s bekleniyor (deneme 1/5)
+[OK]     [141/200] YARGITAY_DAIRE 2025/11154/2026/5456 (2026-03-31) 307c
+[OK]     [142/200] YARGITAY_DAIRE 2025/14724/2026/5451 (2026-03-31) 330c
+[OK]     [143/200] YARGITAY_DAIRE 2025/8590/2026/5453 (2026-03-31) 330c
+[OK]     [144/200] YARGITAY_DAIRE 2025/11558/2026/5449 (2026-03-31) 330c
+[OK]     [145/200] YARGITAY_DAIRE 2025/12094/2026/5457 (2026-03-31) 330c
+[WARN]     429 — 17s bekleniyor (deneme 1/5)
+[OK]     [146/200] YARGITAY_DAIRE 2025/10356/2026/5455 (2026-03-31) 12916c
+[OK]     [147/200] YARGITAY_DAIRE 2025/9523/2026/2061 (2026-03-31) 2321c
+[OK]     [148/200] YARGITAY_DAIRE 2026/1807/2026/2039 (2026-03-31) 3440c
+[OK]     [149/200] YARGITAY_DAIRE 2025/8651/2026/5452 (2026-03-31) 7755c
+[OK]     [150/200] YARGITAY_DAIRE 2025/15136/2026/5278 (2026-03-30) 5242c
+[WARN]     429 — 22s bekleniyor (deneme 1/5)
+[OK]     [151/200] YARGITAY_DAIRE 2026/2201/2026/5287 (2026-03-30) 307c
+[OK]     [152/200] YARGITAY_DAIRE 2025/4710/2026/2398 (2026-03-30) 330c
+[OK]     [153/200] YARGITAY_DAIRE 2025/4909/2026/2005 (2026-03-30) 330c
+[OK]     [154/200] YARGITAY_DAIRE 2026/1710/2026/2386 (2026-03-30) 330c
+[OK]     [155/200] YARGITAY_DAIRE 2026/1373/2026/1983 (2026-03-27) 330c
+[WARN]     429 — 17s bekleniyor (deneme 1/5)
+[OK]     [156/200] YARGITAY_DAIRE 2025/4742/2026/2320 (2026-03-26) 1159c
+[OK]     [157/200] YARGITAY_DAIRE 2025/539/2026/2339 (2026-03-26) 6082c
+[OK]     [158/200] YARGITAY_DAIRE 2024/5291/2026/2356 (2026-03-26) 5298c
+[OK]     [159/200] YARGITAY_DAIRE 2025/4339/2026/2234 (2026-03-25) 2651c
+[OK]     [160/200] YARGITAY_DAIRE 2025/9104/2026/1908 (2026-03-25) 329c
+[OK]     [161/200] YARGITAY_DAIRE 2024/4627/2026/2243 (2026-03-25) 8352c
+[OK]     [162/200] YARGITAY_DAIRE 2025/12718/2026/4942 (2026-03-25) 7591c
+[OK]     [163/200] YARGITAY_DAIRE 2025/10552/2026/4938 (2026-03-25) 3348c
+[OK]     [164/200] YARGITAY_DAIRE 2025/13374/2026/4936 (2026-03-25) 6538c
+[OK]     [165/200] YARGITAY_DAIRE 2025/10958/2026/4949 (2026-03-25) 6209c
+[OK]     [166/200] YARGITAY_DAIRE 2025/12569/2026/5005 (2026-03-25) 16419c
+[OK]     [167/200] YARGITAY_DAIRE 2025/10935/2026/5016 (2026-03-25) 6453c
+[OK]     [168/200] YARGITAY_DAIRE 2025/12323/2026/4960 (2026-03-25) 7394c
+[OK]     [169/200] YARGITAY_DAIRE 2025/3073/2026/2066 (2026-03-24) 1233c
+[OK]     [170/200] YARGITAY_DAIRE 2025/13542/2026/4868 (2026-03-24) 15620c
+[OK]     [171/200] YARGITAY_DAIRE 2025/13097/2026/4870 (2026-03-24) 307c
+[OK]     [172/200] YARGITAY_DAIRE 2025/15845/2026/4869 (2026-03-24) 330c
+[OK]     [173/200] YARGITAY_DAIRE 2025/12136/2026/4877 (2026-03-24) 330c
+[OK]     [174/200] YARGITAY_DAIRE 2025/10438/2026/4875 (2026-03-24) 330c
+[OK]     [175/200] YARGITAY_DAIRE 2025/14127/2026/4917 (2026-03-24) 330c
+[OK]     [176/200] YARGITAY_DAIRE 2026/1808/2026/1838 (2026-03-24) 330c
+[OK]     [177/200] YARGITAY_DAIRE 2026/1795/2026/1837 (2026-03-24) 330c
+[OK]     [178/200] YARGITAY_DAIRE 2025/9527/2026/1839 (2026-03-24) 330c
+[WARN]     429 — 9s bekleniyor (deneme 1/5)
+[OK]     [179/200] YARGITAY_DAIRE 2025/11090/2026/4790 (2026-03-23) 9163c
+[OK]     [180/200] YARGITAY_DAIRE 2025/4898/2026/1816 (2026-03-23) 7050c
+[OK]     [181/200] YARGITAY_DAIRE 2025/10357/2026/4721 (2026-03-23) 15119c
+[OK]     [182/200] YARGITAY_DAIRE 2025/13315/2026/4734 (2026-03-23) 6755c
+[OK]     [183/200] YARGITAY_DAIRE 2025/13207/2026/4865 (2026-03-23) 5642c
+[OK]     [184/200] YARGITAY_DAIRE 2026/1250/2026/1773 (2026-03-12) 13521c
+[OK]     [185/200] YARGITAY_DAIRE 2025/9980/2026/4614 (2026-03-12) 14825c
+[OK]     [186/200] YARGITAY_DAIRE 2025/2527/2026/2040 (2026-03-12) 307c
+[OK]     [187/200] YARGITAY_DAIRE 2025/9682/2026/4576 (2026-03-12) 330c
+[OK]     [188/200] YARGITAY_DAIRE 2026/1593/2026/1804 (2026-03-12) 330c
+[OK]     [189/200] YARGITAY_DAIRE 2026/2717/2026/4635 (2026-03-12) 330c
+[OK]     [190/200] YARGITAY_DAIRE 2025/8360/2026/4583 (2026-03-12) 330c
+[OK]     [191/200] YARGITAY_DAIRE 2025/14689/2026/4606 (2026-03-12) 330c
+[WARN]     429 — 12s bekleniyor (deneme 1/5)
+[OK]     [192/200] HGK 2026/116/2026/148 (2026-03-11) 8151c
+[OK]     [193/200] HGK 2025/831/2026/147 (2026-03-11) 11545c
+[OK]     [194/200] HGK 2025/825/2026/162 (2026-03-11) 11680c
+[OK]     [195/200] HGK 2025/820/2026/161 (2026-03-11) 12300c
+[OK]     [196/200] HGK 2025/816/2026/159 (2026-03-11) 11973c
+[OK]     [197/200] HGK 2025/819/2026/160 (2026-03-11) 11761c
+[OK]     [198/200] HGK 2025/814/2026/167 (2026-03-11) 7766c
+[OK]     [199/200] HGK 2025/815/2026/168 (2026-03-11) 7853c
+[OK]     [200/200] HGK 2025/818/2026/170 (2026-03-11) 7665c
+[OK] [Usulsüz Tebligat] tamamlandı: 200/200
+[INFO] [İtirazın Kaldırılması] hedef 120, mevcut 2 — 'itirazın kaldırılması' (courts=['YARGITAYKARARI'])
+[WARN]     429 — 22s bekleniyor (deneme 1/5)
+[OK]     [3/120] YARGITAY_DAIRE 2025/4467/2026/2949 (2026-05-12) 307c
+[OK]     [4/120] YARGITAY_DAIRE 2026/3655/2026/2896 (2026-05-11) 330c
+[OK]     [5/120] HGK 2026/336/2026/309 (2026-05-06) 330c
+[OK]     [6/120] YARGITAY_DAIRE 2025/5866/2026/2746 (2026-05-04) 330c
+[WARN]     429 — 18s bekleniyor (deneme 1/5)
+[OK]     [7/120] YARGITAY_DAIRE 2026/3662/2026/2712 (2026-05-04) 307c
+[OK]     [8/120] YARGITAY_DAIRE 2025/5715/2026/2745 (2026-05-04) 330c
+[WARN]     429 — 22s bekleniyor (deneme 1/5)
+[OK]     [9/120] YARGITAY_DAIRE 2025/17863/2026/7898 (2026-04-30) 1390c
+[OK]     [10/120] HGK 2026/326/2026/284 (2026-04-29) 1232c
+[OK]     [11/120] HGK 2026/359/2026/285 (2026-04-29) 1220c
+[OK]     [12/120] HGK 2026/347/2026/283 (2026-04-29) 1278c
+[OK]     [13/120] YARGITAY_DAIRE 2024/6248/2026/2859 (2026-04-22) 1524c
+[OK]     [14/120] YARGITAY_DAIRE 2025/3663/2026/2860 (2026-04-22) 1573c
+[OK]     [15/120] YARGITAY_DAIRE 2025/3467/2026/2792 (2026-04-21) 1495c
+[OK]     [16/120] YARGITAY_DAIRE 2025/3475/2026/2801 (2026-04-21) 1611c
+[OK]     [17/120] YARGITAY_DAIRE 2025/6548/2026/2829 (2026-04-21) 307c
+[OK]     [18/120] YARGITAY_DAIRE 2025/10025/2026/2630 (2026-04-21) 330c
+[OK]     [19/120] YARGITAY_DAIRE 2026/159/2026/2643 (2026-04-21) 330c
+[WARN]     429 — 17s bekleniyor (deneme 1/5)
+[OK]     [20/120] YARGITAY_DAIRE 2026/2409/2026/2594 (2026-04-21) 1102c
+[OK]     [21/120] YARGITAY_DAIRE 2026/1796/2026/2590 (2026-04-21) 1085c
+[OK]     [22/120] YARGITAY_DAIRE 2026/26/2026/2614 (2026-04-21) 1083c
+[OK]     [23/120] YARGITAY_DAIRE 2026/27/2026/2613 (2026-04-21) 1063c
+[OK]     [24/120] YARGITAY_DAIRE 2026/2253/2026/2621 (2026-04-21) 5038c
+[OK]     [25/120] YARGITAY_DAIRE 2025/9435/2026/2635 (2026-04-21) 1063c
+[OK]     [26/120] YARGITAY_DAIRE 2025/9399/2026/2631 (2026-04-21) 1061c
+[OK]     [27/120] YARGITAY_DAIRE 2026/49/2026/2645 (2026-04-21) 1098c
+[OK]     [28/120] YARGITAY_DAIRE 2026/22/2026/2617 (2026-04-21) 1063c
+[OK]     [29/120] YARGITAY_DAIRE 2026/2362/2026/2623 (2026-04-21) 1062c
+[WARN]     429 — 22s bekleniyor (deneme 1/5)
+[OK]     [30/120] YARGITAY_DAIRE 2026/2441/2026/2606 (2026-04-21) 1076c
+[OK]     [31/120] YARGITAY_DAIRE 2026/2609/2026/2647 (2026-04-21) 1061c
+[OK]     [32/120] YARGITAY_DAIRE 2026/43/2026/2636 (2026-04-21) 1061c
+[OK]     [33/120] YARGITAY_DAIRE 2026/34/2026/2601 (2026-04-21) 1063c
+[OK]     [34/120] YARGITAY_DAIRE 2026/2369/2026/2604 (2026-04-21) 1062c
+[OK]     [35/120] YARGITAY_DAIRE 2026/50/2026/2644 (2026-04-21) 1061c
+[OK]     [36/120] YARGITAY_DAIRE 2026/1606/2026/2638 (2026-04-21) 2933c
+[OK]     [37/120] YARGITAY_DAIRE 2026/2345/2026/2611 (2026-04-21) 5452c
+[OK]     [38/120] YARGITAY_DAIRE 2026/2131/2026/2620 (2026-04-21) 1351c
+[WARN]     429 — 22s bekleniyor (deneme 1/5)
+[OK]     [39/120] YARGITAY_DAIRE 2026/2380/2026/2603 (2026-04-21) 1063c
+[OK]     [40/120] YARGITAY_DAIRE 2026/23/2026/2616 (2026-04-21) 1063c
+[OK]     [41/120] YARGITAY_DAIRE 2026/2584/2026/2649 (2026-04-21) 1064c
+[OK]     [42/120] YARGITAY_DAIRE 2026/29/2026/2600 (2026-04-21) 1063c
+[OK]     [43/120] YARGITAY_DAIRE 2026/130/2026/2633 (2026-04-21) 1091c
+[OK]     [44/120] YARGITAY_DAIRE 2026/163/2026/2619 (2026-04-21) 1065c
+[OK]     [45/120] YARGITAY_DAIRE 2025/9859/2026/2598 (2026-04-21) 1063c
+[OK]     [46/120] YARGITAY_DAIRE 2026/113/2026/2609 (2026-04-21) 1064c
+[OK]     [47/120] YARGITAY_DAIRE 2026/2353/2026/2612 (2026-04-21) 1065c
+[OK]     [48/120] YARGITAY_DAIRE 2025/9852/2026/2625 (2026-04-21) 1983c
+[WARN]     429 — 22s bekleniyor (deneme 1/5)
+[OK]     [49/120] YARGITAY_DAIRE 2026/2320/2026/2624 (2026-04-21) 307c
+[OK]     [50/120] YARGITAY_DAIRE 2025/9981/2026/2628 (2026-04-21) 330c
+[OK]     [51/120] YARGITAY_DAIRE 2025/9833/2026/2595 (2026-04-21) 330c
+[OK]     [52/120] YARGITAY_DAIRE 2026/2453/2026/2605 (2026-04-21) 330c
+[OK]     [53/120] YARGITAY_DAIRE 2025/9850/2026/2596 (2026-04-21) 330c
+[OK]     [54/120] YARGITAY_DAIRE 2026/30/2026/2599 (2026-04-21) 330c
+[OK]     [55/120] YARGITAY_DAIRE 2026/2368/2026/2592 (2026-04-21) 330c
+[OK]     [56/120] YARGITAY_DAIRE 2025/9751/2026/2608 (2026-04-21) 330c
+[OK]     [57/120] YARGITAY_DAIRE 2025/9832/2026/2597 (2026-04-21) 330c
+[OK]     [58/120] YARGITAY_DAIRE 2026/2439/2026/2593 (2026-04-21) 330c
+[WARN]     429 — 9s bekleniyor (deneme 1/5)
+[WARN]     429 — 26s bekleniyor (deneme 2/5)
+[OK]     [59/120] YARGITAY_DAIRE 2026/25/2026/2615 (2026-04-21) 307c
+[OK]     [60/120] YARGITAY_DAIRE 2026/21/2026/2618 (2026-04-21) 330c
+[OK]     [61/120] YARGITAY_DAIRE 2026/35/2026/2602 (2026-04-21) 330c
+[OK]     [62/120] YARGITAY_DAIRE 2026/2172/2026/6872 (2026-04-20) 330c
+[OK]     [63/120] YARGITAY_DAIRE 2026/2171/2026/6871 (2026-04-20) 330c
+[OK]     [64/120] YARGITAY_DAIRE 2024/6791/2026/2708 (2026-04-20) 330c
+[OK]     [65/120] YARGITAY_DAIRE 2025/4690/2026/2749 (2026-04-20) 330c
+[OK]     [66/120] YARGITAY_DAIRE 2026/2785/2026/2571 (2026-04-20) 330c
+[OK]     [67/120] YARGITAY_DAIRE 2026/99/2026/2567 (2026-04-20) 330c
+[OK]     [68/120] YARGITAY_DAIRE 2026/81/2026/2576 (2026-04-20) 330c
+[WARN]     429 — 9s bekleniyor (deneme 1/5)
+[OK]     [69/120] YARGITAY_DAIRE 2025/9237/2026/2553 (2026-04-20) 307c
+[OK]     [70/120] YARGITAY_DAIRE 2026/82/2026/2577 (2026-04-20) 330c
+[OK]     [71/120] YARGITAY_DAIRE 2026/2701/2026/2583 (2026-04-20) 330c
+[OK]     [72/120] YARGITAY_DAIRE 2026/78/2026/2588 (2026-04-20) 330c
+[OK]     [73/120] YARGITAY_DAIRE 2025/9980/2026/2575 (2026-04-20) 330c
+[OK]     [74/120] YARGITAY_DAIRE 2025/9746/2026/2557 (2026-04-20) 330c
+[OK]     [75/120] YARGITAY_DAIRE 2026/2847/2026/2532 (2026-04-20) 330c
+[OK]     [76/120] YARGITAY_DAIRE 2026/2027/2026/2539 (2026-04-20) 330c
+[OK]     [77/120] YARGITAY_DAIRE 2025/9648/2026/2558 (2026-04-20) 330c
+[OK]     [78/120] YARGITAY_DAIRE 2026/3432/2026/2542 (2026-04-20) 329c
+[WARN]     429 — 8s bekleniyor (deneme 1/5)
+[OK]     [79/120] YARGITAY_DAIRE 2026/2924/2026/2572 (2026-04-20) 307c
+[OK]     [80/120] YARGITAY_DAIRE 2026/91/2026/2565 (2026-04-20) 330c
+[OK]     [81/120] YARGITAY_DAIRE 2025/9848/2026/2556 (2026-04-20) 330c
+[OK]     [82/120] YARGITAY_DAIRE 2026/1734/2026/2543 (2026-04-20) 330c
+Traceback (most recent call last):
+  File "C:\Users\Ümit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\Ümit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpx\_transports\default.py", line 127, in __iter__
+    for part in self._httpcore_stream:
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ümit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpcore\_sync\connection_pool.py", line 407, in __iter__
+    raise exc from None
+  File "C:\Users\Ümit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpcore\_sync\connection_pool.py", line 403, in __iter__
+    for part in self._stream:
+                ^^^^^^^^^^^^
+  File "C:\Users\Ümit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpcore\_sync\http11.py", line 342, in __iter__
+    raise exc
+  File "C:\Users\Ümit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpcore\_sync\http11.py", line 334, in __iter__
+    for chunk in self._connection._receive_response_body(**kwargs):
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Ümit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpcore\_sync\http11.py", line 203, in _receive_response_body
+    event = self._receive_event(timeout=timeout)
+  File "C:\Users\Ümit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpcore\_sync\http11.py", line 213, in _receive_event
+    with map_exceptions({h11.RemoteProtocolError: RemoteProtocolError}):
+         ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ümit\AppData\Local\Python\pythoncore-3.14-64\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Ümit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.RemoteProtocolError: peer closed connection without sending complete message body (incomplete chunked read)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\yargi-mcp-filex-test\pipeline\bedesten_adapter.py", line 297, in <module>
+    main()
+    ~~~~^^
+  File "C:\yargi-mcp-filex-test\pipeline\bedesten_adapter.py", line 285, in main
+    crawl_topic(name, phrase, target, sid, ck, court_types)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\yargi-mcp-filex-test\pipeline\bedesten_adapter.py", line 206, in crawl_topic
+    doc_payload, doc_text = mcp(
+                            ~~~^
+        "get_bedesten_document_markdown", {"documentId": doc_id}, sid, 1
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\yargi-mcp-filex-test\pipeline\bedesten_adapter.py", line 66, in mcp
+    r = call_tool(tool, args, sid, req_id)
+  File "C:\yargi-mcp-filex-test\tests\common.py", line 66, in call_tool
+    r = mcp_request(payload, session_id)
+  File "C:\yargi-mcp-filex-test\tests\common.py", line 35, in mcp_request
+    return httpx.post(f"{BASE_URL}/mcp", json=payload, headers=headers, timeout=30)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ümit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpx\_api.py", line 304, in post
+    return request(
+        "POST",
+    ...<13 lines>...
+        trust_env=trust_env,
+    )
+  File "C:\Users\Ümit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpx\_api.py", line 109, in request
+    return client.request(
+           ~~~~~~~~~~~~~~^
+        method=method,
+        ^^^^^^^^^^^^^^
+    ...<8 lines>...
+        follow_redirects=follow_redirects,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ümit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpx\_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ümit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpx\_client.py", line 928, in send
+    raise exc
+  File "C:\Users\Ümit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpx\_client.py", line 922, in send
+    response.read()
+    ~~~~~~~~~~~~~^^
+  File "C:\Users\Ümit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpx\_models.py", line 881, in read
+    self._content = b"".join(self.iter_bytes())
+                    ~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ümit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpx\_models.py", line 897, in iter_bytes
+    for raw_bytes in self.iter_raw():
+                     ~~~~~~~~~~~~~^^
+  File "C:\Users\Ümit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpx\_models.py", line 951, in iter_raw
+    for raw_stream_bytes in self.stream:
+                            ^^^^^^^^^^^
+  File "C:\Users\Ümit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpx\_client.py", line 153, in __iter__
+    for chunk in self._stream:
+                 ^^^^^^^^^^^^
+  File "C:\Users\Ümit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpx\_transports\default.py", line 126, in __iter__
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ümit\AppData\Local\Python\pythoncore-3.14-64\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Ümit\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.RemoteProtocolError: peer closed connection without sending complete message body (incomplete chunked read)

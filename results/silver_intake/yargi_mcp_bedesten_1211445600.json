@@ -1,0 +1,17 @@
+{
+  "captureId": "yargi_mcp_bedesten_1211445600",
+  "source": "yargi_mcp",
+  "topic": "İtirazın Kaldırılması",
+  "court": "İzmir Bölge Adliye Mahkemesi 11. Hukuk Dairesi",
+  "chamber": "İzmir Bölge Adliye Mahkemesi 11. Hukuk Dairesi",
+  "esasNo": "2026/568",
+  "kararNo": "2026/967",
+  "decisionDate": "2026-06-05",
+  "summary": "ERROR (rate_limit_exceeded, HTTP 429): Bedesten istemci tarafı eşzamanlılık sınırına ulaşıldı (yerel token-bucket dolu). Lütfen kısa bir süre bekleyip belgeyi tekrar talep edin. Yargı MCP'nin daha hızlı ve profesyonel versiyonunu test etmek",
+  "decisionText": "ERROR (rate_limit_exceeded, HTTP 429): Bedesten istemci tarafı eşzamanlılık sınırına ulaşıldı (yerel token-bucket dolu). Lütfen kısa bir süre bekleyip belgeyi tekrar talep edin. Yargı MCP'nin daha hızlı ve profesyonel versiyonunu test etmek için beta sürümüne kaydolabilirsiniz: https://yargi.betaspacestudio.com Retry-After: 3.5",
+  "sourceUrl": null,
+  "authorityLevel": "BAM",
+  "piiSeen": false,
+  "piiSignals": null,
+  "reviewRequired": true
+}

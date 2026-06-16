@@ -1,0 +1,17 @@
+{
+  "captureId": "yargi_mcp_bedesten_1208032000",
+  "source": "yargi_mcp",
+  "topic": "Usulsüz Tebligat",
+  "court": "Yargıtay Hukuk Genel Kurulu",
+  "chamber": "Hukuk Genel Kurulu",
+  "esasNo": "2025/644",
+  "kararNo": "2026/233",
+  "decisionDate": "2026-04-08",
+  "summary": "ERROR (rate_limit_exceeded, HTTP 429): Bedesten istemci tarafı eşzamanlılık sınırına ulaşıldı (yerel token-bucket dolu). Lütfen kısa bir süre bekleyip belgeyi tekrar talep edin. Yargı MCP'nin daha hızlı ve profesyonel versiyonunu test etmek",
+  "decisionText": "ERROR (rate_limit_exceeded, HTTP 429): Bedesten istemci tarafı eşzamanlılık sınırına ulaşıldı (yerel token-bucket dolu). Lütfen kısa bir süre bekleyip belgeyi tekrar talep edin. Yargı MCP'nin daha hızlı ve profesyonel versiyonunu test etmek için beta sürümüne kaydolabilirsiniz: https://yargi.betaspacestudio.com Retry-After: 20.6",
+  "sourceUrl": null,
+  "authorityLevel": "HGK",
+  "piiSeen": false,
+  "piiSignals": null,
+  "reviewRequired": true
+}

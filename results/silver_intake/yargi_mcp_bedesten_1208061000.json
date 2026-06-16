@@ -1,0 +1,17 @@
+{
+  "captureId": "yargi_mcp_bedesten_1208061000",
+  "source": "yargi_mcp",
+  "topic": "İtirazın İptali",
+  "court": "Konya Bölge Adliye Mahkemesi 3. Hukuk Dairesi",
+  "chamber": "Konya Bölge Adliye Mahkemesi 3. Hukuk Dairesi",
+  "esasNo": "2026/1134",
+  "kararNo": "2026/1210",
+  "decisionDate": "2026-05-22",
+  "summary": "ERROR (rate_limit_exceeded, HTTP 429): Bedesten istemci tarafı eşzamanlılık sınırına ulaşıldı (yerel token-bucket dolu). Lütfen kısa bir süre bekleyip belgeyi tekrar talep edin. Yargı MCP'nin daha hızlı ve profesyonel versiyonunu test etmek",
+  "decisionText": "ERROR (rate_limit_exceeded, HTTP 429): Bedesten istemci tarafı eşzamanlılık sınırına ulaşıldı (yerel token-bucket dolu). Lütfen kısa bir süre bekleyip belgeyi tekrar talep edin. Yargı MCP'nin daha hızlı ve profesyonel versiyonunu test etmek için beta sürümüne kaydolabilirsiniz: https://yargi.betaspacestudio.com Retry-After: 16.6",
+  "sourceUrl": null,
+  "authorityLevel": "BAM",
+  "piiSeen": false,
+  "piiSignals": null,
+  "reviewRequired": true
+}

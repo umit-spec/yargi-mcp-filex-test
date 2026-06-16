@@ -1,0 +1,17 @@
+{
+  "captureId": "yargi_mcp_bedesten_1209848300",
+  "source": "yargi_mcp",
+  "topic": "İtirazın İptali",
+  "court": "Gaziantep Bölge Adliye Mahkemesi 17. Hukuk Dairesi",
+  "chamber": "Gaziantep Bölge Adliye Mahkemesi 17. Hukuk Dairesi",
+  "esasNo": "2026/679",
+  "kararNo": "2026/787",
+  "decisionDate": "2026-06-03",
+  "summary": "ERROR (rate_limit_exceeded, HTTP 429): Bedesten istemci tarafı eşzamanlılık sınırına ulaşıldı (yerel token-bucket dolu). Lütfen kısa bir süre bekleyip belgeyi tekrar talep edin. Yargı MCP'nin daha hızlı ve profesyonel versiyonunu test etmek",
+  "decisionText": "ERROR (rate_limit_exceeded, HTTP 429): Bedesten istemci tarafı eşzamanlılık sınırına ulaşıldı (yerel token-bucket dolu). Lütfen kısa bir süre bekleyip belgeyi tekrar talep edin. Yargı MCP'nin daha hızlı ve profesyonel versiyonunu test etmek için beta sürümüne kaydolabilirsiniz: https://yargi.betaspacestudio.com Retry-After: 15.1",
+  "sourceUrl": null,
+  "authorityLevel": "BAM",
+  "piiSeen": false,
+  "piiSignals": null,
+  "reviewRequired": true
+}

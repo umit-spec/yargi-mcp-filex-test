@@ -1,0 +1,17 @@
+{
+  "captureId": "yargi_mcp_bedesten_1210717700",
+  "source": "yargi_mcp",
+  "topic": "Usulsüz Tebligat",
+  "court": "Sakarya Bölge Adliye Mahkemesi 7. Hukuk Dairesi",
+  "chamber": "Sakarya Bölge Adliye Mahkemesi 7. Hukuk Dairesi",
+  "esasNo": "2025/242",
+  "kararNo": "2026/1012",
+  "decisionDate": "2026-05-21",
+  "summary": "ERROR (rate_limit_exceeded, HTTP 429): Bedesten istemci tarafı eşzamanlılık sınırına ulaşıldı (yerel token-bucket dolu). Lütfen kısa bir süre bekleyip belgeyi tekrar talep edin. Yargı MCP'nin daha hızlı ve profesyonel versiyonunu test etmek",
+  "decisionText": "ERROR (rate_limit_exceeded, HTTP 429): Bedesten istemci tarafı eşzamanlılık sınırına ulaşıldı (yerel token-bucket dolu). Lütfen kısa bir süre bekleyip belgeyi tekrar talep edin. Yargı MCP'nin daha hızlı ve profesyonel versiyonunu test etmek için beta sürümüne kaydolabilirsiniz: https://yargi.betaspacestudio.com Retry-After: 19.0",
+  "sourceUrl": null,
+  "authorityLevel": "BAM",
+  "piiSeen": false,
+  "piiSignals": null,
+  "reviewRequired": true
+}

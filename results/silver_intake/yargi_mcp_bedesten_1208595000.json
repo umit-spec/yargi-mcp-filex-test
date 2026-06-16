@@ -1,0 +1,17 @@
+{
+  "captureId": "yargi_mcp_bedesten_1208595000",
+  "source": "yargi_mcp",
+  "topic": "Usulsüz Tebligat",
+  "court": "Yargıtay",
+  "chamber": "8. Hukuk Dairesi",
+  "esasNo": "2024/5435",
+  "kararNo": "2026/2557",
+  "decisionDate": "2026-04-15",
+  "summary": "ERROR (rate_limit_exceeded, HTTP 429): Bedesten API rate limit aşıldı (HTTP 429 Too Many Requests). Lütfen kısa bir süre bekleyip belgeyi tekrar talep edin. Yargı MCP'nin daha hızlı ve profesyonel versiyonunu test etmek için beta sürümüne k",
+  "decisionText": "ERROR (rate_limit_exceeded, HTTP 429): Bedesten API rate limit aşıldı (HTTP 429 Too Many Requests). Lütfen kısa bir süre bekleyip belgeyi tekrar talep edin. Yargı MCP'nin daha hızlı ve profesyonel versiyonunu test etmek için beta sürümüne kaydolabilirsiniz: https://yargi.betaspacestudio.com Retry-After: 22",
+  "sourceUrl": null,
+  "authorityLevel": "YARGITAY_DAIRE",
+  "piiSeen": false,
+  "piiSignals": null,
+  "reviewRequired": true
+}

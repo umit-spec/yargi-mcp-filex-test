@@ -1,0 +1,17 @@
+{
+  "captureId": "yargi_mcp_bedesten_1211302600",
+  "source": "yargi_mcp",
+  "topic": "Usulsüz Tebligat",
+  "court": "İzmir Bölge Adliye Mahkemesi 11. Hukuk Dairesi",
+  "chamber": "İzmir Bölge Adliye Mahkemesi 11. Hukuk Dairesi",
+  "esasNo": "2024/28",
+  "kararNo": "2026/942",
+  "decisionDate": "2026-06-04",
+  "summary": "ERROR (rate_limit_exceeded, HTTP 429): Bedesten istemci tarafı eşzamanlılık sınırına ulaşıldı (yerel token-bucket dolu). Lütfen kısa bir süre bekleyip belgeyi tekrar talep edin. Yargı MCP'nin daha hızlı ve profesyonel versiyonunu test etmek",
+  "decisionText": "ERROR (rate_limit_exceeded, HTTP 429): Bedesten istemci tarafı eşzamanlılık sınırına ulaşıldı (yerel token-bucket dolu). Lütfen kısa bir süre bekleyip belgeyi tekrar talep edin. Yargı MCP'nin daha hızlı ve profesyonel versiyonunu test etmek için beta sürümüne kaydolabilirsiniz: https://yargi.betaspacestudio.com Retry-After: 11.4",
+  "sourceUrl": null,
+  "authorityLevel": "BAM",
+  "piiSeen": false,
+  "piiSignals": null,
+  "reviewRequired": true
+}

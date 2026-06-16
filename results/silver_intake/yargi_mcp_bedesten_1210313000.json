@@ -1,0 +1,17 @@
+{
+  "captureId": "yargi_mcp_bedesten_1210313000",
+  "source": "yargi_mcp",
+  "topic": "İtirazın İptali",
+  "court": "Denizli Bölge Adliye Mahkemesi 3. Hukuk Dairesi",
+  "chamber": "Denizli Bölge Adliye Mahkemesi 3. Hukuk Dairesi",
+  "esasNo": "2026/946",
+  "kararNo": "2026/1035",
+  "decisionDate": "2026-06-01",
+  "summary": "ERROR (rate_limit_exceeded, HTTP 429): Bedesten istemci tarafı eşzamanlılık sınırına ulaşıldı (yerel token-bucket dolu). Lütfen kısa bir süre bekleyip belgeyi tekrar talep edin. Yargı MCP'nin daha hızlı ve profesyonel versiyonunu test etmek",
+  "decisionText": "ERROR (rate_limit_exceeded, HTTP 429): Bedesten istemci tarafı eşzamanlılık sınırına ulaşıldı (yerel token-bucket dolu). Lütfen kısa bir süre bekleyip belgeyi tekrar talep edin. Yargı MCP'nin daha hızlı ve profesyonel versiyonunu test etmek için beta sürümüne kaydolabilirsiniz: https://yargi.betaspacestudio.com Retry-After: 18.2",
+  "sourceUrl": null,
+  "authorityLevel": "BAM",
+  "piiSeen": false,
+  "piiSignals": null,
+  "reviewRequired": true
+}

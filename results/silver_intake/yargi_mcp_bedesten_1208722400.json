@@ -1,0 +1,17 @@
+{
+  "captureId": "yargi_mcp_bedesten_1208722400",
+  "source": "yargi_mcp",
+  "topic": "Usulsüz Tebligat",
+  "court": "Ankara Bölge Adliye Mahkemesi 20. Hukuk Dairesi",
+  "chamber": "Ankara Bölge Adliye Mahkemesi 20. Hukuk Dairesi",
+  "esasNo": "2024/672",
+  "kararNo": "2026/1113",
+  "decisionDate": "2026-05-22",
+  "summary": "ERROR (rate_limit_exceeded, HTTP 429): Bedesten API rate limit aşıldı (HTTP 429 Too Many Requests). Lütfen kısa bir süre bekleyip belgeyi tekrar talep edin. Yargı MCP'nin daha hızlı ve profesyonel versiyonunu test etmek için beta sürümüne k",
+  "decisionText": "ERROR (rate_limit_exceeded, HTTP 429): Bedesten API rate limit aşıldı (HTTP 429 Too Many Requests). Lütfen kısa bir süre bekleyip belgeyi tekrar talep edin. Yargı MCP'nin daha hızlı ve profesyonel versiyonunu test etmek için beta sürümüne kaydolabilirsiniz: https://yargi.betaspacestudio.com Retry-After: 22",
+  "sourceUrl": null,
+  "authorityLevel": "BAM",
+  "piiSeen": false,
+  "piiSignals": null,
+  "reviewRequired": true
+}
