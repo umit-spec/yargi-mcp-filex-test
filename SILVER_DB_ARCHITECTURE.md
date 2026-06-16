@@ -87,6 +87,11 @@ CREATE TABLE silver_decisions (
   metadata_completeness REAL,  -- 0.0-1.0, field fill rate
   pii_status TEXT,  -- "cleared", "flagged", "manual_review_required"
   
+  -- Tier 3: Strategic Role (THE MOAT)
+  -- How does a lawyer use this decision in case strategy?
+  strategic_role TEXT,  -- "ana_daynak|destekleyici|karsi_goruset_curut|ispat_yuku|usul|esas"
+  strategic_confidence REAL,  -- 0.0-1.0, Cüneyt's certainty about strategic role
+  
   -- Audit
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,

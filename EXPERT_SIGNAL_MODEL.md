@@ -126,23 +126,39 @@ Every time Cüneyt Bey reviews a decision, he generates signals:
 
 ## Why This Data Is Strategic
 
+### The Critical Layer: Strategic Role (Tier 3)
+
+**This is the game-changer:**
+
+Not just: "Is this a good decision?"  
+But: "**How would a lawyer use this decision in their case strategy?**"
+
+Example signals:
+- "This decision is used as **primary argument** in TK 21/2 cases"
+- "This decision **defeats counter-arguments** in meskeniyet disputes"
+- "This decision **shifts proof burden** in execution proceedings"
+- "This decision is **procedural support** for rejected appeals"
+
+With 100 evaluations capturing Tier 3:
+- Model learns not just decision quality, but **decision purpose**
+- Lawyers don't search for "good decisions" — they search for "how do I argue this?"
+- This transforms from commodity (decision DB) to differentiated (strategy guide)
+
 ### Short Term (3-6 months)
-- Understand approval patterns
-- Identify missing topics
-- Improve intake keywords
-- Train new reviewers using Cüneyt's logic
+- Capture 100 evaluations with **Strategic Role signals** (Tier 3)
+- Understand how Cüneyt categorizes decisions by usage, not just quality
+- Measure Expert Explainability Rate (EER) on Tier 3 — can he articulate WHY a decision is "Ana daynak" vs "Destekleyici"?
 
 ### Medium Term (6-12 months)
-- Build **approval predictor** (which decisions would Cüneyt approve?)
-- Triage incoming decisions (auto-flag high-signal candidates)
-- Identify gaps (what topics need more coverage?)
-- Improve Gold DB quality metrics
+- Build **decision-usage predictor** (which strategy does this decision support?)
+- Triage for lawyer workflow (not "find decisions," but "which decision should I cite for my argument?")
+- Model learns patterns: "Ana daynak kararlar genelde şu özelliklere sahip"
+- Identify gaps in coverage by strategy type, not by topic
 
 ### Long Term (1-3 years)
-- **Scale Cüneyt's judgment** (other experts using his model)
-- Automate triage (with human override)
-- Licensing opportunity (sell model to other platforms)
-- Investment thesis (expertise-as-asset, not data-as-asset)
+- **Automate decision recommendation by strategy** (when lawyer states their argument, get matching decisions + their usage roles)
+- Licensing opportunity (sell decision-strategy model to other platforms)
+- Investment thesis (expertise-in-strategy, not expertise-in-curation)
 
 ---
 

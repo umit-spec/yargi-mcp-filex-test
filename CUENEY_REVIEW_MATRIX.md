@@ -38,6 +38,11 @@ Filex's competitive advantage is **curation at scale**, not volume.
 
 ## Cüneyt Matrix: The Filtering Mechanism
 
+**Critical difference from traditional legal databases:**
+
+Not just: "Is this a good decision?"  
+**Cüneyt judges:** "How would a lawyer use this decision in case strategy?"
+
 For each Silver candidate, Cüneyt Bey selects ONE of five actions:
 
 ### 1. GOLD_APPROVED
@@ -110,10 +115,15 @@ This is **how expertise scales**.
 
 1. Dashboard shows PENDING decisions (sorted by topic/confidence)
 2. Cüneyt reads decision excerpt (selected_text_excerpt from Silver DB)
-3. Clicks ONE of five buttons: [GOLD_APPROVED] [KEEP] [NEEDS_FIX] [REJECT] [DUPLICATE]
-4. Adds optional review_notes (1-2 sentences)
-5. Next decision appears
-6. Metrics update in real-time
+3. Evaluates via **4-tier structure** (THE MOAT IS TIER 3):
+   - **Tier 1:** Outcome (GOLD/SILVER/REJECT)
+   - **Tier 2:** Quality signals (Güçlü içtihat, Yerleşik uygulama, etc)
+   - **Tier 3 ⭐ CRITICAL:** Strategic Role (Ana daynak? Karşı görüşü çürütür? İspat yükü?)
+   - **Tier 4:** Topic tag (TK 21/2, Meskeniyet, etc)
+4. Clicks ONE of five buttons: [GOLD_APPROVED] [KEEP] [NEEDS_FIX] [REJECT] [DUPLICATE]
+5. Adds optional review_notes (1-2 sentences)
+6. Next decision appears
+7. Metrics update in real-time
 
 **Monthly (target: 80-120 decisions reviewed per month)**
 
