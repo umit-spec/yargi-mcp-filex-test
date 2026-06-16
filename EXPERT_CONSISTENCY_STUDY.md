@@ -375,20 +375,19 @@ This determines whether Filex is a **data company** or an **AI company**.
 
 ---
 
-## The MVP Dashboard Design
+## The MVP Dashboard Design (4-Tier Strategy Capture)
 
-**Critical insight:** Don't ask for free-text explanations.
+**Critical insight:** Avukat's real problem isn't "find a decision" — it's "how do I use this decision in my case?"
 
-**Why:** Long-form text degrades to:
-- "güzel karar"
-- "iyi karar"
-- "kullanılır"
-
-**Result:** Unusable data.
+The moat: **Decision usage strategy**, not decision retrieval.
 
 ---
 
-**Better approach:** Checkbox model + optional notes
+**Four-tier UI captures:**
+1. Decision outcome (quality signal)
+2. Quality signals (why it's good)
+3. Strategic role (how to use it)
+4. Topic tag (what area)
 
 ```
 ════════════════════════════════════════════════════════════════
@@ -401,7 +400,7 @@ KARAR REVIEW
 
 ════════════════════════════════════════════════════════════════
 
-SONUÇ
+SEVİYE 1: KARAR SONUCU
 
 ( ) GOLD_APPROVED
 ( ) KEEP_IN_SILVER
@@ -411,7 +410,7 @@ SONUÇ
 
 ════════════════════════════════════════════════════════════════
 
-NEDEN?
+SEVİYE 2: KALİTE SİNYALLERİ
 
 ☐ Güçlü içtihat
 ☐ Yerleşik uygulama
@@ -423,12 +422,38 @@ NEDEN?
 
 ════════════════════════════════════════════════════════════════
 
+SEVİYE 3: STRATEJİK ROL ⭐ CRITICAL
+
+Avukat bu kararı dava stratejisinde nasıl kullanır?
+
+☐ Ana dayanak (primary argument)
+☐ Destekleyici içtihat (supporting)
+☐ Karşı görüşü çürütür (counter-argument)
+☐ İspat yükü argümanı (burden shifting)
+☐ Usul argümanı (procedural)
+☐ Esas argümanı (substantive)
+
+════════════════════════════════════════════════════════════════
+
+SEVİYE 4: KONU ETİKETİ
+
+Hangi konuda?
+
+☐ TK 21/2 (Usulsüz Tebligat)
+☐ TK 35 (Yetki)
+☐ Meskeniyet
+☐ Haciz
+☐ İhalenin Feshi
+☐ İtirazın İptali
+☐ İspat Yükü
+☐ Sabit Olmayan Borç
+
+════════════════════════════════════════════════════════════════
+
 ÖLÇÜLER
 
 Authority Weight:      [██████░░░░] 7/10
 Draft Utility:         [████████░░] 8/10
-Precedent Strength:    [strong / moderate / weak]
-Topic Coverage:        [gap-filling / routine / novel]
 
 ════════════════════════════════════════════════════════════════
 
@@ -441,12 +466,13 @@ OPSİYONEL NOT
 ════════════════════════════════════════════════════════════════
 ```
 
-**Benefits:**
-- ✅ Structured data (each checkbox = one signal)
-- ✅ Consistent capture (no vague prose)
-- ✅ Quick (expert spends 2 min, not 10)
-- ✅ Learnable (ML can train on checkbox patterns)
-- ✅ Audit trail (exactly what expert selected)
+**Why 4 tiers matter:**
+- ✅ Tier 1 = Quality signal (traditional DB)
+- ✅ Tier 2 = Expert opinion (better DB)
+- ✅ **Tier 3 = Usage strategy (THE MOAT)**
+- ✅ Tier 4 = Context (searchability)
+
+**Tier 3 is the game-changer:** Model learns not just "is this a good decision?" but "**what is this decision for?**"
 
 ---
 
