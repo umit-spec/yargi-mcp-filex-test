@@ -2,14 +2,25 @@
 
 ## The Critical Question
 
-**Hypothesis:** Cüneyt Bey's decision-making is consistent and learnable.
+**Important caveat:** In law, inconsistency is not failure. It's natural.
 
-**Null hypothesis:** His decisions are intuitive, post-hoc rationalized, and irreproducible.
+Example: Same expert's views change legitimately:
+- 2022: HGK establishes position A
+- 2024: İBK contradicts with position B
+- 2026: New chamber approach emerges (position C)
+
+**This is not noise. This is how law evolves.**
+
+---
+
+**Real hypothesis:** Cüneyt Bey's decisions are **explainable and structured**, even when they evolve.
+
+**Null hypothesis:** His decisions are intuitive ("it felt right"), post-hoc rationalized, and irreproducible.
 
 **Why this matters:**
 
-If signals are **consistent** → We have learnable heuristics → Moat is real  
-If signals are **inconsistent** → We have noise → Moat is fiction
+If signals are **explainable** → We can learn heuristics (even evolving ones) → Moat is real  
+If signals are **inarticulate** ("my gut says so") → We have noise → Moat is fiction
 
 ---
 
@@ -126,7 +137,7 @@ We could collect 1000 expert signals and discover they're:
 
 ---
 
-## The Real KPI
+## The Real KPI (Revised)
 
 **Not measured:**
 - ❌ Number of Gold decisions
@@ -134,9 +145,34 @@ We could collect 1000 expert signals and discover they're:
 - ❌ Speed of review
 
 **Measured:**
-- ✅ Expert Consistency Rate (ECR)
+- ✅ Expert Explainability Rate (EER) ← PRIMARY
+- ✅ Expert Consistency Rate (ECR) ← SECONDARY
 - ✅ Metadata Independence (MI)
 - ✅ Authority Independence (AI)
+
+### Expert Explainability Rate (EER)
+
+```
+EER = (Articulate reasons / Total reviews) × 100
+
+What counts as "articulate":
+  ✅ "HGK desteği var, yerleşik uygulama, dilekçede kullanılabilir"
+  ✅ "TK 21/2'nin son İBK değişikliği önemli"
+  ❌ "Çok iyi karar"
+  ❌ "İçime sindi"
+  ❌ "Olması gereken"
+
+Example:
+- 50 decisions reviewed
+- 48 had articulate, structured reasons
+- 2 had vague reasons
+- EER = 48/50 = 96%
+```
+
+**Target EER:** ≥90% (decisions are explainable)  
+**Red flag EER:** <70% (decisions are intuitive, not learnable)
+
+---
 
 ### Expert Consistency Rate (ECR)
 
@@ -202,29 +238,31 @@ Example:
 
 ## Timeline
 
-### Phase 1a (Week 1-2): Baseline Signals
+### Phase 1a (Week 1-2): Baseline High-Quality Evals
 - Collect 50 decisions
-- Standard review (metadata visible, authority visible)
-- Record signals per Expert Signal Model
+- Review via checkbox UI (not free text)
+- Measure: EER (explainability), not just outcome
+- **Gate:** EER ≥85%? (decisions are articulate)
 
 ### Phase 1b (Week 2-3): Consistency Test
 - Show same 50 decisions at day 30
 - Metadata visible, authority visible
 - Compare outcomes: ECR = ?
-- **Gate decision:** If ECR <70%, halt. Root cause analysis needed.
+- **Gate decision:** If ECR <70%, halt. Check if inconsistency is legitimate (law evolved) or expert was unclear.
 
 ### Phase 1c (Week 3-4): Metadata & Authority Tests
 - 20 decisions: strip metadata, compare (MI = ?)
 - 15 decisions: relabel authority, compare (AI = ?)
-- **Decision:** Continue to 100 signals (if all tests pass) or redesign
+- **Decision:** Continue to 100 evals (if all tests pass) or redesign
 
-### Phase 2: Expand to 100 Signals
+### Phase 2: Expand to 100 High-Quality Evals
 - Same three tests on new 50 decisions
-- Validate consistency holds at scale
+- Validate EER holds at scale
+- Gate: EER ≥85% on full 100
 
 ### Phase 3: Analysis & Modeling
-- Cluster high-ECR signals
-- Identify decision patterns
+- Cluster high-EER signals
+- Identify decision patterns (checkboxes, not prose)
 - Build decision tree / rule-based model
 - Test model on holdout 20 decisions
 
@@ -337,6 +375,81 @@ This determines whether Filex is a **data company** or an **AI company**.
 
 ---
 
+## The MVP Dashboard Design
+
+**Critical insight:** Don't ask for free-text explanations.
+
+**Why:** Long-form text degrades to:
+- "güzel karar"
+- "iyi karar"
+- "kullanılır"
+
+**Result:** Unusable data.
+
+---
+
+**Better approach:** Checkbox model + optional notes
+
+```
+════════════════════════════════════════════════════════════════
+
+KARAR REVIEW
+
+════════════════════════════════════════════════════════════════
+
+[Decision summary excerpt]
+
+════════════════════════════════════════════════════════════════
+
+SONUÇ
+
+( ) GOLD_APPROVED
+( ) KEEP_IN_SILVER
+( ) NEEDS_METADATA_FIX
+( ) DUPLICATE
+( ) REJECT
+
+════════════════════════════════════════════════════════════════
+
+NEDEN?
+
+☐ Güçlü içtihat
+☐ Yerleşik uygulama
+☐ Dilekçede kullanılabilir
+☐ Güncel yaklaşım
+☐ HGK desteği
+☐ Çelişkili karar
+☐ Tekil olay
+
+════════════════════════════════════════════════════════════════
+
+ÖLÇÜLER
+
+Authority Weight:      [██████░░░░] 7/10
+Draft Utility:         [████████░░] 8/10
+Precedent Strength:    [strong / moderate / weak]
+Topic Coverage:        [gap-filling / routine / novel]
+
+════════════════════════════════════════════════════════════════
+
+OPSİYONEL NOT
+
+[...................]
+
+[KAYDET]
+
+════════════════════════════════════════════════════════════════
+```
+
+**Benefits:**
+- ✅ Structured data (each checkbox = one signal)
+- ✅ Consistent capture (no vague prose)
+- ✅ Quick (expert spends 2 min, not 10)
+- ✅ Learnable (ML can train on checkbox patterns)
+- ✅ Audit trail (exactly what expert selected)
+
+---
+
 ## Implementation
 
 Add to silver_decisions schema:
@@ -363,19 +476,40 @@ authority_independence REAL -- 0.0-1.0
 
 ---
 
-## The Bet
+## The Real MVP Goal (Revised)
 
-We are betting that Cüneyt Bey's expert judgment is:
-1. Consistent over time
-2. Substance-based (not label-based)
-3. Learnable from structured signals
+**NOT:** "Collect 100 decisions"  
+**NOT:** "Collect 100 signals"  
 
-**If we win this bet: Filex is defensible, licensable, and valuable.**
+**YES:** "Capture 100 high-quality, structured expert evaluations"
 
-**If we lose: Filex is a nice database, not a moat.**
+High-quality = Expert Explainability Rate ≥85%  
+Structured = Checkbox model (not free text)  
+
+After 100 such evaluations:
+- You have learnable heuristics
+- You can build predictive models
+- You have licensable assets
+- You have an AI company, not a data company
 
 ---
 
-*Expert Consistency Study v1.0 — The Moat Validation Protocol*  
-*First test: Measure ECR on 50 decisions (Day 0 vs Day 30)*  
-*This is the most important experiment Filex will run in Phase 1.*
+## The Bet
+
+We are betting that Cüneyt Bey's expert judgment is:
+1. **Explainable** (not just intuitive)
+2. **Structured** (reproducible in format, even if opinion evolves)
+3. **Learnable** from articulate signals
+
+**If we win this bet: Filex is defensible, licensable, and valuable.**
+
+**If we lose: Filex is a nice curated database, not a moat.**
+
+---
+
+*Expert Consistency Study v1.1 (Revised)  
+The Moat Validation Protocol*
+
+Primary gate: Measure EER (explainability) on first 50 decisions  
+Secondary gate: Validate consistency (ECR) on repeat reviews  
+This is the most important experiment Filex will run in Phase 1.*
